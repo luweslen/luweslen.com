@@ -1,6 +1,6 @@
 {
   "name": "luweslen",
-  "version": "1.0.0", 
+  "version": "1.0.0",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -10,7 +10,8 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@types/node": "18",
+    "@nuxtjs/tailwindcss": "6.8.0",
+    "@types/node": "18.16.19",
     "nuxt": "3.5.2"
   }
 }
