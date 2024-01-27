@@ -1,14 +1,23 @@
 <template>
   <u-notifications />
 
+  <u-dropdown
+    class="fixed bottom-4 right-4"
+    :items="languages" 
+    mode="click" 
+    :popper="{ placement: 'bottom-start' }"
+  >
+    <u-button trailing-icon="i-mdi-language" color="sky" variant="soft"/>
+  </u-dropdown>
+
   <div class="bg-slate-900 w-full flex flex-col items-center">
-    <header class="w-screen justify-center flex flex-col gap-4 p-10 bg-gradient-to-b from-sky-800 to-slate-900 shadow-inner">
-      <div class="flex flex-col items-center gap-2">
+    <header class="w-screen justify-center flex flex-col gap-3 p-10 bg-gradient-to-b from-sky-800 to-slate-900 shadow-inner">
+      <div class="flex flex-col items-center gap-1">
         <h1 class="text-3xl font-extrabold text-center text-slate-200">Luciano Weslen</h1>
-        <h3 class="text-lg font-medium text-center text-slate-300">Desenvolvedor de Sistemas</h3>
+        <h3 class="text-lg font-medium text-center text-slate-300">{{ $t('profession') }}</h3>
       </div>
-      <div class="flex flex-col items-center gap-2">
-        <div class="flex items-center text-xs">
+      <div class="flex flex-col items-center gap-1">
+        <div class="flex flex-col md:flex-row items-center text-xs">
           <u-button 
             variant="link" 
             color="white" 
@@ -39,18 +48,18 @@
       </div>
     </header>
 
-    <main class="max-w-screen-sm w-full items-center flex flex-col gap-5 my-8">
-      <section class="w-full flex justify-between text-sm">
-        <h4 class="min-w-40 font-bold">Educação</h4>
+    <main class="max-w-screen-md w-full items-center flex flex-col gap-5 my-8 px-4">
+      <section class="w-full flex flex-col md:flex-row gap-2 justify-between text-sm">
+        <h4 class="min-w-40 font-bold text-xl">{{ $t('education.title') }}</h4>
         <div class="w-full flex flex-col gap-3">
-          <div class="flex justify-between items-start" v-for="education in educations" :key="education.key">
-            <div class="flex flex-col items-start">
-              <span class="font-bold">{{ education.institution }}</span>
+          <div class="flex flex-col flex-wrap gap-1" v-for="education in educations" :key="education.key">
+            <span class="font-bold">{{ education.institution }}</span>
+            <div class="w-full flex flex-wrap gap-1 justify-between items-center">
               <span>{{ education.course }}</span>
-            </div>
-            <div class="min-w-40 flex gap-1 items-center justify-start">
-              <u-icon name="i-mdi-calendar" />
-              <span>{{ education.start }} - {{ education.end }}</span>
+              <div class="flex gap-1 items-center justify-start">
+                <u-icon name="i-mdi-calendar" class="bg-slate-500"/>
+                <span>{{ $d(new Date(education.start), 'short') }} - {{ education.end ? $d(new Date(education.end),  'short') : $t('current').toLowerCase() }}</span>
+              </div>
             </div>
           </div>
         </div>
@@ -58,12 +67,12 @@
 
       <u-divider :ui="{ border: { size: { horizontal: 'border-t-2' } } }" />
       
-      <section class="max-w-screen-sm w-full flex justify-between text-sm">
-        <h4 class="min-w-40 font-bold">Experiência</h4>
+      <section class="w-full flex flex-col md:flex-row gap-2 justify-between text-sm">
+        <h4 class="min-w-40 font-bold text-xl">{{ $t('experience.title') }}</h4>
         <div class="w-full flex flex-col gap-6">
-          <div class="flex flex-col gap-3 justify-between items-start" v-for="experience in experiences" :key="experience.key">
+          <div class="w-full flex flex-col gap-3 justify-between items-start" v-for="experience in experiences" :key="experience.key">
             <div class="w-full flex justify-between gap-2">
-              <div class="flex flex-col items-start">
+              <div class="w-full flex flex-col gap-2">
                 <u-button 
                   class="font-bold p-0" 
                   variant="link" 
@@ -72,25 +81,33 @@
                 >
                   {{ experience.company }}
                 </u-button>
-                <span>{{ experience.job }}</span>
-              </div>
-              <div class="min-w-40 flex gap-1 items-center">
-                <u-icon name="i-mdi-calendar" />
-                <span>{{ experience.start }} - {{ experience.end }}</span>
+                <div class="w-full flex flex-wrap gap-2">
+                  <u-badge 
+                    v-for="skill in experience.skills" 
+                    :key="skill" 
+                    color="sky" 
+                    variant="soft"
+                    class="text-xs"
+                  >
+                    {{ skill }}
+                  </u-badge>
+                </div>
+                <div class="w-full flex flex-col gap-2">
+                  <div 
+                    v-for="job in experience.jobs"
+                    :key="job.key"
+                    class="w-full flex flex-col md:flex-row gap-1 justify-between"
+                  >
+                    <span>>_ {{ job.name }}</span>
+                    <div class="min-w-52 flex gap-1 items-center">
+                      <u-icon name="i-mdi-calendar" class="bg-slate-500" />
+                      <span>{{ $d(new Date(job.start), 'short') }} - {{ job.end ? $d(new Date(job.end),  'short') : $t('current').toLowerCase() }}</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div>
-              <div class="w-full flex flex-wrap gap-2">
-                <u-badge 
-                  v-for="skill in experience.skills" 
-                  :key="skill" 
-                  color="sky" 
-                  variant="soft"
-                  class="text-xs"
-                >
-                  {{ skill }}
-                </u-badge>
-              </div>
               <div>
                 <div class="flex flex-col gap-2">
                   <div class="flex gap-2" v-for="responsibility in experience.responsibilities" :key="responsibility">
@@ -105,23 +122,53 @@
 
       <u-divider :ui="{ border: { size: { horizontal: 'border-t-2' } } }" />
 
-      <section class="w-full flex justify-between text-sm">
-        <h4 class="min-w-40 font-bold">Habilidades</h4>
+      <section class="w-full flex flex-col md:flex-row gap-2 justify-between text-sm">
+        <h4 class="min-w-40 font-bold text-xl">{{ $t('skills.title') }}</h4>
         <div class="w-full flex flex-col gap-3">
-          <div class="flex justify-between items-start" v-for="skill in skills" :key="skill.name">
+          <div class="flex flex-col md:flex-row gap-3">
+            <span class="min-w-32 text-slate-500">{{ $t('skills.indicators.title') }}</span>
+            <div class="flex flex-wrap gap-1">
+              <u-badge 
+                color="sky" 
+                variant="soft"
+                class="text-xs flex flex-col gap-1"
+              >
+                {{ $t('skills.indicators.used') }} {{ $t('skills.indicators.often').toLowerCase()  }}
+                <u-meter :value="100" size="xs" color="sky"/>
+              </u-badge>
+              <u-badge 
+                color="sky" 
+                variant="soft"
+                class="text-xs flex flex-col gap-1"
+              >
+                {{ $t('skills.indicators.used') }} {{ $t('skills.indicators.occasionally').toLowerCase()  }}
+                <u-meter :value="50" size="xs" color="sky"/>
+              </u-badge>
+              <u-badge 
+                color="sky" 
+                variant="soft"
+                class="text-xs flex flex-col gap-1"
+              >
+                {{ $t('skills.indicators.used') }} {{ $t('skills.indicators.sometimes').toLowerCase() }}
+                <u-meter :value="25" size="xs" color="sky"/>
+              </u-badge>
+            </div>
+          </div>
+          <div class="flex gap-3justify-between items-start" v-for="skill in skills" :key="skill.name">
             <div class="flex flex-col items-start gap-2">
               <span class="font-bold">{{ skill.name }}</span>
-              <div class="flex gap-3" v-for="subCategory in skill.subCategories" :key="subCategory.name">
+              <div class="flex flex-col md:flex-row gap-3 items-start" v-for="subCategory in skill.subcategories" :key="subCategory.name">
                 <span class="min-w-32 text-slate-500">{{ subCategory.name }}</span>
                 <div class="w-full flex flex-wrap gap-2">
                   <u-badge 
                     v-for="skill in subCategory.skills" 
-                    :key="skill" 
+                    :key="skill.name" 
                     color="sky" 
                     variant="soft"
-                    class="text-xs"
+                    class="text-xs flex flex-col gap-1"
                   >
-                    {{ skill }}
+                    {{ skill.name }}
+                    <u-meter :value="skill.level" size="xs" color="sky"/>
                   </u-badge>
                 </div>
               </div>
@@ -142,6 +189,28 @@
 <script setup lang='ts'>
 const clipboard = useCopyToClipboard();
 const toast = useToast();
+const { locale, t: $t } = useI18n()
+
+const languages = ref([
+  [
+    {
+      label: 'Português',
+      icon: 'i-twemoji-flag-brazil',
+      value: 'pt-BR',
+      click: () => {
+        locale.value = 'pt-BR'
+      }
+    },
+    {
+      label: 'Inglês',
+      icon: 'i-twemoji-flag-united-states',
+      value: 'en-US',
+      click: () => {
+        locale.value = 'en-US'
+      }
+    }
+  ]
+])
 
 const socialMedia = ref([
   {
@@ -158,189 +227,191 @@ const socialMedia = ref([
   },
 ])
 
-const educations = ref([
+const educations = computed(() => ([
   {
     key: 2,
-    institution: 'Instituto Federal de Educação',
-    course: 'Analise e Desenvolvimento de Sistemas',
-    start: 'Jan 2020',
-    end: 'Mar 2023'
+    institution: $t('education.institutions.ifpr'),
+    course: $t('education.courses.analysis'),
+    start: '2020-01-01T00:00:00.000Z',
+    end: '2023-03-31T00:00:00.000Z',
   },
   {
     key: 1,
-    institution: 'Instituto Federal de Educação',
-    course: 'Analise e Desenvolvimento de Sistemas',
-    start: 'Jan 2016',
-    end: 'Dez 2019'
+    institution: $t('education.institutions.ifpr'),
+    course: $t('education.courses.technician'),
+    start: '2016-01-01T00:00:00.000Z',
+    end: '2019-12-31T00:00:00.000Z',
   }
-])
+]))
 
-const experiences = ref([
+const experiences = computed(() => ([
   {
     key: 2,
-    company: 'ZRP',
+    company:  $t('experience.companies.zrp'),
     companyUrl: 'https://zrp.com.br',
-    job: 'Desenvolvedor de Sistemas',
-    start: 'Abr 2022',
-    end: 'presente',
+    jobs: [
+      {
+        key: 2,
+        name: $t('experience.positions.developer'),
+        start: '2023-09-01T00:00:00.000Z',
+        end: undefined,
+      },
+      {
+        key: 1,
+        name: $t('experience.positions.junior'),
+        start: '2022-04-01T00:00:00.000Z',
+        end: '2023-08-31T00:00:00.000Z',
+      },
+    ],
     skills: [
       'VueJS',
-      'NodeJS',
-      'MongoDB',
-      'Trabalho em equipe',
-      'PostgreSQL',
       'NestJS',
-      'AWS',
+      'MongoDB',
+      'PostgreSQL',
       'TypeScript',
-      'Comunicação'
+      'AWS',
     ]
   },
   {
     key: 2,
-    company: 'tilit / UIRD',
+    company:  $t('experience.companies.tilit'),
     companyUrl: 'https://uird.com.br',
-    job: 'Desenvolvedor de Sistemas Junior',
-    start: 'Jul 2021',
-    end: 'Abr 2022',
+    jobs: [
+      {
+        key: 2,
+        name: $t('experience.positions.junior'),
+        start: '2021-07-01T00:00:00.000Z',
+        end: '2022-03-31T00:00:00.000Z',
+      },
+      {
+        key: 1,
+        name: $t('experience.positions.intern'),
+        start: '2020-03-01T00:00:00.000Z',
+        end: '2021-06-31T00:00:00.000Z',
+      },
+    ],
     skills: [
       'VueJS',
       'NodeJS',
       'MongoDB',
       'TypeScript',
-      'Comunicação',
       'Python',
       'Flask'
     ],
     responsibilities: []
   },
-  {
-    key: 1,
-    company: 'tilit / UIRD',
-    companyUrl: 'https://uird.com.br',
-    job: 'Estagiário em Desenvolvimento de Sistemas',
-    start: 'Abr 2019',
-    end: 'Jun 2021',
-    skills: [
-      'VueJS',
-      'NodeJS',
-      'MongoDB',
-    ],
-    responsibilities: []
-  }
-])
+]))
 
-const skills = ref ([
+const skills = computed(() => ([
   {
-    name: 'Linguagens',
-    subCategories: [
+    name: $t('skills.categories.programming'),
+    subcategories: [
       {
-        name: 'Frontend',
+        name: $t('skills.subcategories.frontend'),
         skills: [
-          'JavaScript',
-          'TypeScript',
-          'CSS',
-          'HTML',
+          { name: 'JavaScript', level: 100 },
+          { name: 'TypeScript', level: 100 },
+          { name: 'HTML', level: 100 },
+          { name: 'CSS', level: 100 },
+          { name: 'JSON', level: 100 },
+          { name: 'GraphQL', level: 25 }
         ],
       },
       {
-        name: 'Backend',
+        name: $t('skills.subcategories.backend'),
         skills: [
-          'Python',
-          'JavaScript',
-          'TypeScript',
+          { name: 'JavaScript', level: 100 },
+          { name: 'TypeScript', level: 100 },
+          { name: 'Python', level: 25 },
+          { name: 'Ruby', level: 25 },
+          { name: 'Java', level: 25 },
         ]
       },
       {
-        name: 'Banco de dados',
+        name: $t('skills.subcategories.database'),
         skills: [
-          'SQL',
+          { name: 'SQL', level: 50 },
         ]
       },
     ]
   },
   {
     name: 'Tecnologias',
-    subCategories: [
+    subcategories: [
       {
-        name: 'Frontend',
+        name: $t('skills.subcategories.frontend'),
         skills: [
-          'VueJS',
-          'NuxtJS',
-          'Quasar',
-          'ReactJS',
-          'ViteJS',
-          'Webpack',
+          { name: 'VueJS', level: 100 },
+          { name: 'Quasar', level: 100 },
+          { name: 'ViteJS', level: 100 },
+          { name: 'NuxtJS', level: 50 },
+          { name: 'Webpack', level: 50 },
+          { name: 'ReactJS', level: 25 },
+          { name: 'TailwindCSS', level: 50 },
+          { name: 'Bootstrap', level: 50 },
         ]
       },
       {
-        name: 'UI',
+        name: $t('skills.subcategories.backend'),
         skills: [
-          'TailwindCSS',
-          'Bootstrap',
+          { name: 'NodeJS', level: 100 },
+          { name: 'NestJS', level: 100 },
+          { name: 'ExpressJS', level: 100 },
+          { name: 'Fastify', level: 50 },
+          { name: 'TypeORM', level: 100 },
+          { name: 'Prisma', level: 50 },
+          { name: 'Flask', level: 25 },
+          { name: 'Ruby on Rails', level: 25 },
         ]
       },
       {
-        name: 'Backend',
+        name: $t('skills.subcategories.devops'),
         skills: [
-          'NodeJS',
-          'NestJS',
-          'Flask',
-          'TypeORM',
-          'Prisma'
+          { name: 'Docker', level: 100 },
+          { name: 'AWS', level: 100 },
         ]
       },
       {
-        name: 'Cloud',
+        name: $t('skills.subcategories.database'),
         skills: [
-          'AWS',
-          'Docker'
-        ]
-      },
-      {
-        name: 'Database',
-        skills: [
-          'MongoDB',
-          'PostgreSQL',
-          'Redis'
+          { name: 'MongoDB', level: 100 },
+          { name: 'PostgreSQL', level: 100 },
+          { name: 'Redis', level: 100 },
         ]
       }
     ]
   },
   {
-    name: 'Ferramentas',
-    subCategories: [
+    name: $t('skills.categories.tools'),
+    subcategories: [
       {
-        name: 'Desenvolvimento',
+        name: $t('skills.subcategories.general'),
         skills: [
-          'Git',
-          'GitHub',
-          'GitLab',
-          'VSCode',
+          { name: 'Git', level: 100 },
+          { name: 'GitHub', level: 100 },
+          { name: 'GitLab', level: 100 },
+          { name: 'VSCode', level: 100 },
+          { name: 'Jira', level: 100 },
         ]
       },
-      {
-        name: 'Design',
-        skills: [
-          'Figma',
-        ]
-      }
     ]
   },
   {
-    name: 'Soft Skills',
-    subCategories: [
+    name: $t('skills.categories.soft'),
+    subcategories: [
       {
-        name: 'Geral',
+        name: $t('skills.subcategories.general'),
         skills: [
-          'Trabalho em equipe',
-          'Comunicação',
-          'Criatividade',
-          'Gestão',
+          { name: $t('skills.teamWork'), level: 100 },
+          { name: $t('skills.communication'), level: 100 },
+          { name: $t('skills.proactivity'), level: 100 },
+          { name: $t('skills.leadership'), level: 100 },
+          { name: $t('skills.creativity'), level: 50 },
         ]
       }
     ]
   }
-])
+]))
 
 const copyToClipboard = () => {
   try {

@@ -12,7 +12,8 @@ export default defineNuxtConfig({
   },
   modules: [
     '@nuxt/ui',
-    '@nuxtjs/google-fonts'
+    '@nuxtjs/google-fonts',
+    '@nuxtjs/i18n'
   ],
   googleFonts: {
     families: {
@@ -21,9 +22,9 @@ export default defineNuxtConfig({
   },
   css: ['~/assets/css/main.css'],
   ui: {
-    icons: ['mdi'],
-    notifications: {
-      position: 'top-0 bottom-auto'
-    }
+    icons: ['mdi', 'twemoji'],
+  },
+  i18n: {
+    vueI18n: './i18n.config.ts' // if you are using custom path, default 
   }
 });
