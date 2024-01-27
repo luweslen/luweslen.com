@@ -1,49 +1,28 @@
 <template>
   <u-notifications />
 
-  <u-dropdown
-    class="fixed bottom-4 right-4"
-    :items="languages" 
-    mode="click" 
-    :popper="{ placement: 'bottom-start' }"
-  >
-    <u-button trailing-icon="i-mdi-language" color="sky" variant="soft"/>
+  <u-dropdown class="fixed bottom-4 right-4" :items="languages" mode="click" :popper="{ placement: 'bottom-start' }">
+    <u-button trailing-icon="i-mdi-language" color="sky" variant="soft" />
   </u-dropdown>
 
   <div class="bg-slate-900 w-full flex flex-col items-center">
-    <header class="w-screen justify-center flex flex-col gap-3 p-10 bg-gradient-to-b from-sky-800 to-slate-900 shadow-inner">
+    <header
+      class="w-screen justify-center flex flex-col gap-3 p-10 bg-gradient-to-b from-sky-800 to-slate-900 shadow-inner">
       <div class="flex flex-col items-center gap-1">
         <h1 class="text-3xl font-extrabold text-center text-slate-200">Luciano Weslen</h1>
         <h3 class="text-lg font-medium text-center text-slate-300">{{ $t('profession') }}</h3>
       </div>
       <div class="flex flex-col items-center gap-1">
         <div class="flex flex-col md:flex-row items-center text-xs">
-          <u-button 
-            variant="link" 
-            color="white" 
-            icon="i-mdi-location" 
+          <u-button variant="link" color="white" icon="i-mdi-location"
             to="https://www.google.com.br/maps/place/Londrina,+PR/@-23.321258,-51.2481647,12z/data=!3m1!4b1!4m6!3m5!1s0x94eb435a57af586d:0x23ac11a5c614f971!8m2!3d-23.3197305!4d-51.1662008!16zL20vMDM0cnEy?hl=pt-BR&entry=ttu"
-            label="Londrina, Brasil"
-          />
-          <u-button 
-            variant="link" 
-            color="white" 
-            icon="i-mdi-email" 
-            @click="copyToClipboard"
-            label="luciano.weslen11@gmail.com"
-          />
+            label="Londrina, Brasil" />
+          <u-button variant="link" color="white" icon="i-mdi-email" @click="copyToClipboard"
+            label="luciano.weslen11@gmail.com" />
         </div>
         <div class="flex gap-2 items-center">
-          <u-button 
-            v-for="item in socialMedia" 
-            :key="item.key"
-            :color="item.color"
-            :ui="{ rounded: 'rounded-full' }"
-            :icon="item.icon" 
-            label="/luweslen"
-            :to="item.url"
-            variant="link"
-          />
+          <u-button v-for="item in socialMedia" :key="item.key" :color="item.color" :ui="{ rounded: 'rounded-full' }"
+            :icon="item.icon" label="/luweslen" :to="item.url" variant="link" />
         </div>
       </div>
     </header>
@@ -57,8 +36,9 @@
             <div class="w-full flex flex-wrap gap-1 justify-between items-center">
               <span>{{ education.course }}</span>
               <div class="flex gap-1 items-center justify-start">
-                <u-icon name="i-mdi-calendar" class="bg-slate-500"/>
-                <span>{{ $d(new Date(education.start), 'short') }} - {{ education.end ? $d(new Date(education.end),  'short') : $t('current').toLowerCase() }}</span>
+                <u-icon name="i-mdi-calendar" class="bg-slate-500" />
+                <span>{{ $d(new Date(education.start), 'short') }} - {{ education.end ? $d(new Date(education.end),
+                  'short') : $t('current').toLowerCase() }}</span>
               </div>
             </div>
           </div>
@@ -66,42 +46,30 @@
       </section>
 
       <u-divider :ui="{ border: { size: { horizontal: 'border-t-2' } } }" />
-      
+
       <section class="w-full flex flex-col md:flex-row gap-2 justify-between text-sm">
         <h4 class="min-w-40 font-bold text-xl">{{ $t('experience.title') }}</h4>
         <div class="w-full flex flex-col gap-6">
-          <div class="w-full flex flex-col gap-3 justify-between items-start" v-for="experience in experiences" :key="experience.key">
+          <div class="w-full flex flex-col gap-3 justify-between items-start" v-for="experience in experiences"
+            :key="experience.key">
             <div class="w-full flex justify-between gap-2">
               <div class="w-full flex flex-col gap-2">
-                <u-button 
-                  class="font-bold p-0" 
-                  variant="link" 
-                  :to="experience.companyUrl" 
-                  color="white"
-                >
+                <u-button class="font-bold p-0" variant="link" :to="experience.companyUrl" color="white">
                   {{ experience.company }}
                 </u-button>
                 <div class="w-full flex flex-wrap gap-2">
-                  <u-badge 
-                    v-for="skill in experience.skills" 
-                    :key="skill" 
-                    color="sky" 
-                    variant="soft"
-                    class="text-xs"
-                  >
+                  <u-badge v-for="skill in experience.skills" :key="skill" color="sky" variant="soft" class="text-xs">
                     {{ skill }}
                   </u-badge>
                 </div>
                 <div class="w-full flex flex-col gap-2">
-                  <div 
-                    v-for="job in experience.jobs"
-                    :key="job.key"
-                    class="w-full flex flex-col md:flex-row gap-1 justify-between"
-                  >
+                  <div v-for="job in experience.jobs" :key="job.key"
+                    class="w-full flex flex-col md:flex-row gap-1 justify-between">
                     <span>>_ {{ job.name }}</span>
                     <div class="min-w-52 flex gap-1 items-center">
                       <u-icon name="i-mdi-calendar" class="bg-slate-500" />
-                      <span>{{ $d(new Date(job.start), 'short') }} - {{ job.end ? $d(new Date(job.end),  'short') : $t('current').toLowerCase() }}</span>
+                      <span>{{ $d(new Date(job.start), 'short') }} - {{ job.end ? $d(new Date(job.end), 'short') :
+                        $t('current').toLowerCase() }}</span>
                     </div>
                   </div>
                 </div>
@@ -128,47 +96,31 @@
           <div class="flex flex-col md:flex-row gap-3">
             <span class="min-w-32 text-slate-500">{{ $t('skills.indicators.title') }}</span>
             <div class="flex flex-wrap gap-1">
-              <u-badge 
-                color="sky" 
-                variant="soft"
-                class="text-xs flex flex-col gap-1"
-              >
-                {{ $t('skills.indicators.used') }} {{ $t('skills.indicators.often').toLowerCase()  }}
-                <u-meter :value="100" size="xs" color="sky"/>
+              <u-badge color="sky" variant="soft" class="text-xs flex flex-col gap-1">
+                {{ $t('skills.indicators.used') }} {{ $t('skills.indicators.often').toLowerCase() }}
+                <u-meter :value="100" size="xs" color="sky" />
               </u-badge>
-              <u-badge 
-                color="sky" 
-                variant="soft"
-                class="text-xs flex flex-col gap-1"
-              >
-                {{ $t('skills.indicators.used') }} {{ $t('skills.indicators.occasionally').toLowerCase()  }}
-                <u-meter :value="50" size="xs" color="sky"/>
+              <u-badge color="sky" variant="soft" class="text-xs flex flex-col gap-1">
+                {{ $t('skills.indicators.used') }} {{ $t('skills.indicators.occasionally').toLowerCase() }}
+                <u-meter :value="50" size="xs" color="sky" />
               </u-badge>
-              <u-badge 
-                color="sky" 
-                variant="soft"
-                class="text-xs flex flex-col gap-1"
-              >
+              <u-badge color="sky" variant="soft" class="text-xs flex flex-col gap-1">
                 {{ $t('skills.indicators.used') }} {{ $t('skills.indicators.sometimes').toLowerCase() }}
-                <u-meter :value="25" size="xs" color="sky"/>
+                <u-meter :value="25" size="xs" color="sky" />
               </u-badge>
             </div>
           </div>
           <div class="flex gap-3justify-between items-start" v-for="skill in skills" :key="skill.name">
             <div class="flex flex-col items-start gap-2">
               <span class="font-bold">{{ skill.name }}</span>
-              <div class="flex flex-col md:flex-row gap-3 items-start" v-for="subCategory in skill.subcategories" :key="subCategory.name">
+              <div class="flex flex-col md:flex-row gap-3 items-start" v-for="subCategory in skill.subcategories"
+                :key="subCategory.name">
                 <span class="min-w-32 text-slate-500">{{ subCategory.name }}</span>
                 <div class="w-full flex flex-wrap gap-2">
-                  <u-badge 
-                    v-for="skill in subCategory.skills" 
-                    :key="skill.name" 
-                    color="sky" 
-                    variant="soft"
-                    class="text-xs flex flex-col gap-1"
-                  >
+                  <u-badge v-for="skill in subCategory.skills" :key="skill.name" color="sky" variant="soft"
+                    class="text-xs flex flex-col gap-1">
                     {{ skill.name }}
-                    <u-meter :value="skill.level" size="xs" color="sky"/>
+                    <u-meter :value="skill.level" size="xs" color="sky" />
                   </u-badge>
                 </div>
               </div>
@@ -214,15 +166,15 @@ const languages = ref([
 
 const socialMedia = ref([
   {
-    key: 'linkedin', 
-    icon: 'i-mdi-linkedin', 
-    url: 'https://www.linkedin.com/in/luweslen', 
+    key: 'linkedin',
+    icon: 'i-mdi-linkedin',
+    url: 'https://www.linkedin.com/in/luweslen',
     color: 'sky'
   },
   {
     key: 'github',
-    icon: 'i-mdi-github', 
-    url: 'https://www.github.com/luweslen', 
+    icon: 'i-mdi-github',
+    url: 'https://www.github.com/luweslen',
     color: 'sky'
   },
 ])
@@ -247,7 +199,7 @@ const educations = computed(() => ([
 const experiences = computed(() => ([
   {
     key: 2,
-    company:  $t('experience.companies.zrp'),
+    company: $t('experience.companies.zrp'),
     companyUrl: 'https://zrp.com.br',
     jobs: [
       {
@@ -274,7 +226,7 @@ const experiences = computed(() => ([
   },
   {
     key: 2,
-    company:  $t('experience.companies.tilit'),
+    company: $t('experience.companies.tilit'),
     companyUrl: 'https://uird.com.br',
     jobs: [
       {
@@ -419,7 +371,7 @@ const copyToClipboard = () => {
 
     toast.add({ title: 'Email copiado', description: 'Email copiado para a área de transferência', color: 'green' })
   } catch (error) {
-    
+
   }
 }
 </script>

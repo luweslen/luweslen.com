@@ -13,7 +13,8 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/ui',
     '@nuxtjs/google-fonts',
-    '@nuxtjs/i18n'
+    '@nuxtjs/i18n',
+    '@nuxtjs/eslint-module'
   ],
   googleFonts: {
     families: {
@@ -25,6 +26,6 @@ export default defineNuxtConfig({
     icons: ['mdi', 'twemoji'],
   },
   i18n: {
-    vueI18n: './i18n.config.ts' // if you are using custom path, default 
+    vueI18n: './i18n.config.ts'
   }
 });
