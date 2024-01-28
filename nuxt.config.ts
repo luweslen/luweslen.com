@@ -16,7 +16,8 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/ui',
     '@nuxtjs/google-fonts',
-    '@nuxtjs/i18n'
+    '@nuxtjs/i18n',
+    '@nuxt/test-utils/module'
   ],
   googleFonts: {
     families: {
