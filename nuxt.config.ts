@@ -8,13 +8,15 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: './favicon.svg' },
       ],
+      bodyAttrs: {
+        class: 'bg-slate-900 flex flex-col items-center'
+      }
     }
   },
   modules: [
     '@nuxt/ui',
     '@nuxtjs/google-fonts',
-    '@nuxtjs/i18n',
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/i18n'
   ],
   googleFonts: {
     families: {
