@@ -8,8 +8,10 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
+    "lint": "eslint .",
     "test:unit:watch": "vitest",
-    "test:unit": "vitest run"
+    "test:unit": "vitest run",
+    "test": "yarn test:unit"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
