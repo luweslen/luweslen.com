@@ -5,6 +5,15 @@ export const SetupI18n: I18nOptions = {
   locale: 'pt-BR',
   messages: {
     'en-US': {
+      talks: {
+        title: 'Talks & Slides',
+        2026: {
+          apadrinhamento: 'Sponsorship: Why should you be a sponsor?'
+        },
+        2025: {
+          cicd: 'CI/CD Optimization for NestJS Applications'
+        }
+      },
       profession: 'Software Developer',
       current: 'Current',
       experience: {
@@ -62,6 +71,15 @@ export const SetupI18n: I18nOptions = {
       }
     },
     'pt-BR': {
+      talks: {
+        title: 'Palestras & Slides',
+        2026: {
+          apadrinhamento: 'Apadrinhamento: Por que você deveria ser padrinho ou madrinha?'
+        },
+        2025: {
+          cicd: 'Otimização de CI/CD para Aplicações NestJS'
+        }
+      },
       profession: 'Desenvolvedor de Software',
       current: 'Atualmente',
       experience: {
