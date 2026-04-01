@@ -1,8 +1,24 @@
-// tests/setupFiles/i18n.ts
-import { config } from "@vue/test-utils";
-import { createI18n } from "vue-i18n";
-import { SetupI18n } from "~/i18n/setup.i18n";
+import { vi } from 'vitest'
+import { config } from '@vue/test-utils'
 
-const i18n = createI18n(SetupI18n);
+// Mock useI18n as a global provide
+const useI18nMock = () => ({
+  t: (key: string) => key,
+  tm: (key: string) => [key],
+  locale: { value: 'pt-BR' },
+})
 
-config.global.plugins.push(i18n);
+// Add useI18n as a global stub
+config.global.mocks = {
+  ...config.global.mocks,
+  useI18n: useI18nMock,
+}
+
+// Also make it available globally for components that call it directly
+vi.stubGlobal('useI18n', useI18nMock)
+
+// Mock UIcon component from @nuxt/ui
+config.global.stubs = {
+  ...config.global.stubs,
+  UIcon: { template: '<span class="u-icon-stub"></span>' },
+}

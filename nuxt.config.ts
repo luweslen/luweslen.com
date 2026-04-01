@@ -1,15 +1,17 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  compatibilityDate: '2026-04-01',
+  builder: 'vite',
   app: {
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       title: 'Luciano Weslen',
       link: [
-        { rel: 'icon', type: 'image/svg+xml', href: './favicon.svg' },
+        { rel: 'icon', type: 'image/svg+xml', href: './logo.svg' },
       ],
       bodyAttrs: {
-        class: 'bg-slate-900 flex flex-col items-center'
+        class: 'w-full flex flex-col items-center'
       }
     }
   },
@@ -17,18 +19,31 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxtjs/google-fonts',
     '@nuxtjs/i18n',
-    '@nuxt/test-utils/module'
+    '@nuxt/test-utils/module',
+    'motion-v/nuxt'
   ],
   googleFonts: {
     families: {
-      'Plus+Jakarta+Sans': [400, 500, 600, 700, 800, 900]
+      'Sora': [400, 500, 600, 700, 800, 900],
+      'DM+Sans': [400, 500, 600, 700, 800, 900]
     }
   },
   css: ['~/assets/css/main.css'],
-  ui: {
-    icons: ['mdi', 'twemoji'],
+  icon: {
+    collections: ['mdi', 'twemoji']
   },
   i18n: {
-    vueI18n: './i18n.config.ts'
-  }
+    defaultLocale: 'pt-BR',
+    locales: [
+      { code: 'pt-BR', file: 'pt-BR.json' },
+      { code: 'en-US', file: 'en-US.json' }
+    ],
+    strategy: 'no_prefix'
+  },
+  components: [
+    { path: '~/components/atoms', pathPrefix: false },
+    { path: '~/components/molecules', pathPrefix: false },
+    { path: '~/components/organisms', pathPrefix: false },
+    { path: '~/components/templates', pathPrefix: false },
+  ]
 });

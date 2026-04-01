@@ -1,13 +1,17 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
 
-export default <Partial<Config>>{
+export default {
+  content: [
+    "./pages/**/*.{vue}",
+    "./components/**/*.{vue}",
+    "./app.vue"
+  ],
   theme: {
     extend: {
-      aspectRatio: {
-        auto: 'auto',
-        square: '1 / 1',
-        video: '16 / 9'
+      fontFamily: {
+        display: ["Sora", "sans-serif"],
+        body: ["DM Sans", "sans-serif"],
       },
-    }
+    },
   },
-}
+} satisfies Config;

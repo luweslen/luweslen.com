@@ -1,0 +1,247 @@
+{
+  "common": {
+    "backToHome": "Back to home",
+    "viewSlides": "View slides",
+    "viewDetails": "View details",
+    "viewMore": "View more",
+    "viewLess": "View less",
+    "generatingPdf": "Generating PDF...",
+    "downloadPdf": "Download PDF",
+    "yearsExperience": "years of experience in Software Development",
+    "talk": "talk"
+  },
+  "sections": {
+    "about": "About me:",
+    "skills": "Main Skills",
+    "projects": "Projects",
+    "talks": "Talks",
+    "contact": "Get in touch with me:"
+  },
+  "pages": {
+    "talks": {
+      "title": "Talks",
+      "pageTitle": "Talks & Slides"
+    },
+    "skills": {
+      "title": "Skills",
+      "fullStack": "Full Tech Stack"
+    },
+    "projects": {
+      "title": "Projects"
+    },
+    "about": {
+      "title": "About me",
+      "professionalExperience": "Professional Experience",
+      "academicEducation": "Academic Education"
+    },
+    "curriculum": {
+      "title": "Curriculum"
+    }
+  },
+  "talks": {
+    "sponsorship": {
+      "title": "Sponsorship: Why should you be a sponsor?"
+    },
+    "title": "Talks & Slides",
+    "2026": {
+      "apadrinhamento": {
+        "title": "Sponsorship: Why should you be a sponsor?",
+        "description": "Talk about the importance of mentoring and sponsorship in the professional development of new talents."
+      }
+    },
+    "2025": {
+      "cicd": {
+        "title": "CI/CD Optimization for NestJS Applications",
+        "description": "How to improve CI/CD pipelines for backend applications, ensuring faster builds and reliable deployments."
+      }
+    }
+  },
+  "profession": "Software Developer",
+  "current": "Current",
+  "highlights": {
+    "experience": {
+      "title": "Experience",
+      "description": "Almost 3 years at ZRP, building scalable solutions for the financial market with a focus on performance and security."
+    },
+    "motivation": {
+      "title": "Motivation",
+      "description": "Driven by the challenge of creating efficient and well-structured solutions. Passionate about sharing knowledge as a Chapter Leader."
+    },
+    "impact": {
+      "title": "Impact",
+      "description": "Performance optimization in payments, CI/CD pipeline improvements, and integration and training of new developers."
+    },
+    "goal": {
+      "title": "Goal",
+      "description": "Challenges in software architecture, distributed systems design, and performance optimization."
+    }
+  },
+  "bio": {
+    "intro": "With a solid background in software development, I have been working for almost three years at",
+    "company": "ZRP",
+    "description": ", enhancing skills in systems architecture, backend development, and agile practices."
+  },
+  "experience": {
+    "title": "Experience",
+    "companies": {
+      "tilit": "tilit / UIRD",
+      "zrp": "ZRP"
+    },
+    "positions": {
+      "intern": "Internship Software Developer",
+      "junior": "Junior Software Developer",
+      "developer": "Software Developer",
+      "chapterLeader": "Chapter Leader"
+    },
+    "timeline": {
+      "zrp": {
+        "chapterLeader": {
+          "period": "Aug 2024 – Present",
+          "summary": "Responsible for organizing and guiding technical discussions, managing time, and monitoring the smooth operation of weekly Workshops.",
+          "details": [
+            "Organization of weekly meetings by department for knowledge and experience sharing.",
+            "Joint skill development with the team.",
+            "Support in solving day-to-day problems."
+          ]
+        },
+        "developer": {
+          "period": "Aug 2023 – Present",
+          "summary": "Development of solutions for an Exchange Broker, contributing to the continuous acceleration of the platform.",
+          "details": [
+            "Using Vue.js (Quasar) for responsive and interactive interfaces.",
+            "Node.js and NestJS for robust services and APIs.",
+            "PostgreSQL, MongoDB, and Redis for persistence and caching.",
+            "AWS (SQS, Lambda, ECS, Step Functions) for cloud infrastructure.",
+            "Implementation of CI/CD pipeline improvements."
+          ]
+        },
+        "junior": {
+          "period": "Apr 2022 – Aug 2023",
+          "summary": "Working in agile environments with emphasis on Kanban, technical support, and solution development for a digital exchange broker.",
+          "details": [
+            "Collection and analysis of requirements from internal and external stakeholders.",
+            "Documentation of functional and non-functional requirements.",
+            "Participation in agile teams for iterative and incremental deliveries."
+          ]
+        }
+      },
+      "uird": {
+        "junior": {
+          "period": "Jun 2021 – Mar 2022",
+          "summary": "Development for Agroevox and HOFacil clients, focusing on geospatial data and interactive maps.",
+          "details": [
+            "Vue.js for intuitive and responsive interfaces.",
+            "Python with Flask for the server side.",
+            "MongoDB for geospatial data with GeoJSON.",
+            "Integration of maps and location data into the product."
+          ]
+        },
+        "intern": {
+          "period": "Mar 2020 – Jun 2021",
+          "summary": "Fullstack web development with Vue.js, Node.js, and MongoDB, focusing on learning and solving technical problems.",
+          "details": [
+            "Creation of complete web applications (frontend + backend + database).",
+            "Error debugging and performance optimization."
+          ]
+        }
+      }
+    }
+  },
+  "education": {
+    "title": "Education",
+    "institutions": {
+      "ifpr": "Instituto Federal do Paraná"
+    },
+    "courses": {
+      "technician": "Computer Technician",
+      "analysis": "Analysis and systems development"
+    },
+    "timeline": {
+      "analysis": {
+        "period": "2020 – 2023",
+        "title": "Analysis and Systems Development",
+        "institution": "Instituto Federal do Paraná – IFPR (Curitiba)"
+      },
+      "technician": {
+        "period": "2016 – 2019",
+        "title": "High School Integrated Technical Course in Computer Science",
+        "institution": "Instituto Federal do Paraná – IFPR (Londrina)"
+      }
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "backendDev": {
+      "title": "Backend Development",
+      "description": "Robust APIs, microservices, and scalable integrations with a focus on performance and security."
+    },
+    "frontendDev": {
+      "title": "Frontend Development",
+      "description": "Modern and responsive interfaces with intuitive and accessible user experience."
+    },
+    "mobileDev": {
+      "title": "Mobile Development",
+      "description": "Native and cross-platform apps with smooth and performant experiences."
+    },
+    "projectManagement": {
+      "title": "Project Management",
+      "description": "Planning, execution, and delivery of projects with agile methodologies and focus on results."
+    },
+    "systemsArchitecture": {
+      "title": "Systems Architecture",
+      "description": "Design of scalable, resilient, and highly available solutions."
+    },
+    "indicators": {
+      "title": "Indicators",
+      "used": "Used",
+      "often": "Often",
+      "occasionally": "Occasionally",
+      "sometimes": "Sometimes"
+    },
+    "categories": {
+      "languages": "Languages",
+      "programming": "Programming",
+      "technologies": "Technologies",
+      "tools": "Tools",
+      "soft": "Soft Skills"
+    },
+    "subcategories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "devops": "DevOps",
+      "ui": "UI/UX",
+      "database": "Database",
+      "code": "Code",
+      "general": "General"
+    },
+    "teamWork": "Teamwork",
+    "communication": "Communication",
+    "creativity": "Creativity",
+    "leadership": "Leadership",
+    "proactivity": "Proactivity",
+    "techStack": {
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "database": "Database",
+      "cloudDevops": "Cloud & DevOps",
+      "testing": "Testing",
+      "unitTests": "Unit Tests",
+      "integrationTests": "Integration Tests"
+    },
+    "legend": {
+      "frequent": "Frequent use",
+      "occasional": "Occasional use",
+      "sporadic": "Sporadic use"
+    }
+  },
+  "projects": {
+    "commpix": {
+      "description": "Global payment platform offering international Pix solutions, transforming the complexity of cross-border transactions into operational efficiency.",
+      "shortDescription": "Global payment solutions via international Pix"
+    },
+    "simple": {
+      "description": "White Label solution for managing foreign exchange operations. It offers easy API integration and access to products from renowned financial institutions.",
+      "shortDescription": "Complete White Label foreign exchange management"
+    }
+  }
+}

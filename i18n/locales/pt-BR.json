@@ -1,0 +1,247 @@
+{
+  "common": {
+    "backToHome": "Voltar ao início",
+    "viewSlides": "Ver slides",
+    "viewDetails": "Ver detalhes",
+    "viewMore": "Ver mais",
+    "viewLess": "Ver menos",
+    "generatingPdf": "Gerando PDF...",
+    "downloadPdf": "Download PDF",
+    "yearsExperience": "anos de experiência em Desenvolvimento de Software",
+    "talk": "palestra"
+  },
+  "sections": {
+    "about": "Sobre mim:",
+    "skills": "Principais Habilidades",
+    "projects": "Projetos",
+    "talks": "Palestras",
+    "contact": "Entre em contato comigo:"
+  },
+  "pages": {
+    "talks": {
+      "title": "Palestras",
+      "pageTitle": "Palestras & Slides"
+    },
+    "skills": {
+      "title": "Habilidades",
+      "fullStack": "Stack Tecnológica Completa"
+    },
+    "projects": {
+      "title": "Projetos"
+    },
+    "about": {
+      "title": "Sobre mim",
+      "professionalExperience": "Experiência Profissional",
+      "academicEducation": "Formação Acadêmica"
+    },
+    "curriculum": {
+      "title": "Currículo"
+    }
+  },
+  "talks": {
+    "sponsorship": {
+      "title": "Apadrinhamento: Por que você deveria ser padrinho ou madrinha?"
+    },
+    "title": "Palestras & Slides",
+    "2026": {
+      "apadrinhamento": {
+        "title": "Apadrinhamento: Por que você deveria ser padrinho ou madrinha?",
+        "description": "Palestra sobre a importância do mentoring e apadrinhamento no desenvolvimento profissional de novos talentos."
+      }
+    },
+    "2025": {
+      "cicd": {
+        "title": "Otimização de CI/CD para Aplicações NestJS",
+        "description": "Como melhorar pipelines de CI/CD para aplicações backend, garantindo builds mais rápidos e deploys confiáveis."
+      }
+    }
+  },
+  "profession": "Desenvolvedor de Software",
+  "current": "Atualmente",
+  "highlights": {
+    "experience": {
+      "title": "Experiência",
+      "description": "Quase 3 anos na ZRP, construindo soluções escaláveis para o mercado financeiro com foco em performance e segurança."
+    },
+    "motivation": {
+      "title": "Motivação",
+      "description": "Movido pelo desafio de criar soluções eficientes e bem estruturadas. Apaixonado por compartilhar conhecimento como Chapter Leader."
+    },
+    "impact": {
+      "title": "Impacto",
+      "description": "Otimização de performance em pagamentos, melhorias em pipelines de CI/CD, e integração e treinamento de novos desenvolvedores."
+    },
+    "goal": {
+      "title": "Objetivo",
+      "description": "Desafios em arquitetura de software, design de sistemas distribuídos e otimização de performance."
+    }
+  },
+  "bio": {
+    "intro": "Com uma trajetória sólida em desenvolvimento de software, atuo há quase três anos na",
+    "company": "ZRP",
+    "description": ", aprimorando habilidades em arquitetura de sistemas, desenvolvimento backend e práticas ágeis."
+  },
+  "experience": {
+    "title": "Experiência",
+    "companies": {
+      "tilit": "tilit / UIRD",
+      "zrp": "ZRP"
+    },
+    "positions": {
+      "intern": "Estagiário de Desenvolvimento de Software",
+      "junior": "Desenvolvedor de Software Júnior",
+      "developer": "Desenvolvedor de Software Pleno",
+      "chapterLeader": "Chapter Leader"
+    },
+    "timeline": {
+      "zrp": {
+        "chapterLeader": {
+          "period": "Ago 2024 – Presente",
+          "summary": "Responsável por organizar e orientar discussões técnicas, gerenciar tempo e acompanhar o bom funcionamento das Oficinas semanais.",
+          "details": [
+            "Organização de encontros semanais por departamento para troca de conhecimentos e experiências.",
+            "Desenvolvimento de habilidades em conjunto com o time.",
+            "Suporte na resolução de problemas do dia a dia."
+          ]
+        },
+        "developer": {
+          "period": "Ago 2023 – Presente",
+          "summary": "Desenvolvimento de soluções para uma Corretora de Câmbio, contribuindo para a aceleração contínua da plataforma.",
+          "details": [
+            "Utilização de Vue.js (Quasar) para interfaces responsivas e interativas.",
+            "Node.js e NestJS para serviços e APIs robustas.",
+            "PostgreSQL, MongoDB e Redis para persistência e cache.",
+            "AWS (SQS, Lambda, ECS, Step Functions) para infraestrutura cloud.",
+            "Implementação de melhorias em pipelines de CI/CD."
+          ]
+        },
+        "junior": {
+          "period": "Abr 2022 – Ago 2023",
+          "summary": "Atuação em ambientes ágeis com ênfase em Kanban, suporte técnico e desenvolvimento de soluções para corretora de câmbio digital.",
+          "details": [
+            "Coleta e análise de requisitos de stakeholders internos e externos.",
+            "Documentação de requisitos funcionais e não funcionais.",
+            "Participação em equipes ágeis para entregas iterativas e incrementais."
+          ]
+        }
+      },
+      "uird": {
+        "junior": {
+          "period": "Jun 2021 – Mar 2022",
+          "summary": "Desenvolvimento para clientes Agroevox e HOFacil, com foco em dados geoespaciais e mapas interativos.",
+          "details": [
+            "Vue.js para interfaces intuitivas e responsivas.",
+            "Python com Flask para o lado servidor.",
+            "MongoDB para dados geoespaciais com GeoJSON.",
+            "Integração de mapas e dados de localização no produto."
+          ]
+        },
+        "intern": {
+          "period": "Mar 2020 – Jun 2021",
+          "summary": "Desenvolvimento web fullstack com Vue.js, Node.js e MongoDB, focando em aprendizado e resolução de problemas técnicos.",
+          "details": [
+            "Criação de aplicações web completas (frontend + backend + banco).",
+            "Depuração de erros e otimização de desempenho."
+          ]
+        }
+      }
+    }
+  },
+  "education": {
+    "title": "Educação",
+    "institutions": {
+      "ifpr": "Instituto Federal do Paraná"
+    },
+    "courses": {
+      "technician": "Técnico de Informática Integrado ao Ensino Médio",
+      "analysis": "Análise e desenvolvimento de sistemas"
+    },
+    "timeline": {
+      "analysis": {
+        "period": "2020 – 2023",
+        "title": "Análise e Desenvolvimento de Sistemas",
+        "institution": "Instituto Federal do Paraná – IFPR (Curitiba)"
+      },
+      "technician": {
+        "period": "2016 – 2019",
+        "title": "Técnico em Informática Integrado ao Ensino Médio",
+        "institution": "Instituto Federal do Paraná – IFPR (Londrina)"
+      }
+    }
+  },
+  "skills": {
+    "title": "Habilidades",
+    "backendDev": {
+      "title": "Desenvolvimento Backend",
+      "description": "APIs robustas, microsserviços e integrações escaláveis com foco em performance e segurança."
+    },
+    "frontendDev": {
+      "title": "Desenvolvimento Frontend",
+      "description": "Interfaces modernas e responsivas com experiência de usuário intuitiva e acessível."
+    },
+    "mobileDev": {
+      "title": "Desenvolvimento Mobile",
+      "description": "Aplicativos nativos e multiplataforma com experiências fluidas e performáticas."
+    },
+    "projectManagement": {
+      "title": "Gestão de Projetos",
+      "description": "Planejamento, execução e entrega de projetos com metodologias ágeis e foco em resultados."
+    },
+    "systemsArchitecture": {
+      "title": "Arquitetura de Sistemas",
+      "description": "Design de soluções escaláveis, resilientes e de alta disponibilidade."
+    },
+    "indicators": {
+      "title": "Indicadores",
+      "used": "Usado",
+      "often": "Frequentemente",
+      "occasionally": "Ocasionalmente",
+      "sometimes": "Às vezes"
+    },
+    "categories": {
+      "programming": "Programação",
+      "languages": "Linguagens",
+      "technologies": "Tecnologias",
+      "tools": "Ferramentas",
+      "soft": "Interpessoais"
+    },
+    "subcategories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "devops": "DevOps",
+      "ui": "UI/UX",
+      "database": "Banco de dados",
+      "code": "Código",
+      "general": "Geral"
+    },
+    "teamWork": "Trabalho em equipe",
+    "creativity": "Criatividade",
+    "communication": "Comunicação",
+    "proactivity": "Proatividade",
+    "leadership": "Liderança",
+    "techStack": {
+      "backend": "Back-end",
+      "frontend": "Front-end",
+      "database": "Banco de Dados",
+      "cloudDevops": "Cloud & DevOps",
+      "testing": "Testes",
+      "unitTests": "Testes Unitários",
+      "integrationTests": "Testes de Integração"
+    },
+    "legend": {
+      "frequent": "Uso frequente",
+      "occasional": "Uso ocasional",
+      "sporadic": "Uso esporádico"
+    }
+  },
+  "projects": {
+    "commpix": {
+      "description": "Plataforma de pagamentos globais que oferece soluções de Pix internacional, transformando a complexidade das transações cross-border em eficiência operacional.",
+      "shortDescription": "Soluções globais de pagamento via Pix internacional"
+    },
+    "simple": {
+      "description": "Solução White Label para gestão de operações de câmbio. Oferece integração facilitada via API e acesso a produtos de instituições financeiras renomadas.",
+      "shortDescription": "Gestão completa de operações de câmbio White Label"
+    }
+  }
+}
