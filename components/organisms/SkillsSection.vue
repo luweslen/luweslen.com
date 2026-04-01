@@ -3,11 +3,11 @@ import { Motion } from 'motion-v'
 
 const { t } = useI18n()
 
-const previewSkills = [
-  { icon: 'i-mdi-server', title: 'Backend' },
-  { icon: 'i-mdi-monitor', title: 'Frontend' },
-  { icon: 'i-mdi-sitemap', title: 'Arquitetura' },
-]
+const previewSkills = computed(() => [
+  { icon: 'i-mdi-server', title: t('skillsPreview.backend') },
+  { icon: 'i-mdi-monitor', title: t('skillsPreview.frontend') },
+  { icon: 'i-mdi-sitemap', title: t('skillsPreview.architecture') },
+])
 </script>
 
 <template>
@@ -36,7 +36,7 @@ const previewSkills = [
           <span class="font-display text-sm font-semibold text-foreground">{{ skill.title }}</span>
         </div>
         <div class="flex items-center text-muted-foreground text-sm font-medium px-4">
-          +2 áreas
+          {{ t('skillsPreview.moreAreas') }}
         </div>
       </Motion>
 

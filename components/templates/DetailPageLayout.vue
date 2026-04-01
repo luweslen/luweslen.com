@@ -20,6 +20,5 @@ defineProps<{
     </section>
 
     <AppFooter />
-    <LanguageButton />
   </main>
 </template>

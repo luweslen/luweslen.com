@@ -3,6 +3,5 @@
     <AppHeader />
     <slot />
     <AppFooter />
-    <LanguageButton />
   </main>
 </template>

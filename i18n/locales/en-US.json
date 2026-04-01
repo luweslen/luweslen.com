@@ -8,7 +8,21 @@
     "generatingPdf": "Generating PDF...",
     "downloadPdf": "Download PDF",
     "yearsExperience": "years of experience in Software Development",
-    "talk": "talk"
+    "talk": "talk",
+    "aboutMe": "About me",
+    "contact": "Contact",
+    "english": "English",
+    "portuguese": "Portuguese"
+  },
+  "hero": {
+    "tagline": "Transforming ideas into reality through technology",
+    "availableForChallenges": "Available for new challenges"
+  },
+  "skillsPreview": {
+    "backend": "Backend",
+    "frontend": "Frontend",
+    "architecture": "Architecture",
+    "moreAreas": "+2 areas"
   },
   "sections": {
     "about": "About me:",

@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { Motion } from 'motion-v'
 
+const { t } = useI18n()
 const isFlipped = ref(false)
 </script>
 
@@ -52,7 +53,7 @@ const isFlipped = ref(false)
               name="i-mdi-console"
               class="text-sm"
             />
-            Software Developer
+            {{ t('profession') }}
           </Motion>
 
           <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter leading-none mb-4">
@@ -67,25 +68,25 @@ const isFlipped = ref(false)
             :animate="{ opacity: 1 }"
             :transition="{ delay: 0.4 }"
           >
-            Transformando ideias em realidade através da tecnologia
+            {{ t('hero.tagline') }}
           </Motion>
 
           <Motion
-            class="flex items-center gap-3 text-sm text-muted-foreground mb-10 justify-center lg:justify-start"
+            class="flex flex-col sm:flex-row items-center gap-3 text-sm text-muted-foreground mb-10 justify-center lg:justify-start"
             :initial="{ opacity: 0 }"
             :animate="{ opacity: 1 }"
             :transition="{ delay: 0.6 }"
           >
             <span class="flex items-center gap-1.5">
               <span class="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              Disponível para novos desafios
+              {{ t('hero.availableForChallenges') }}
             </span>
-            <span class="text-border">•</span>
+            <span class="text-border hidden sm:inline">•</span>
             <span>Node.js · TypeScript · AWS</span>
           </Motion>
 
           <Motion
-            class="flex gap-4 justify-center lg:justify-start"
+            class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             :initial="{ opacity: 0, y: 20 }"
             :animate="{ opacity: 1, y: 0 }"
             :transition="{ delay: 0.7 }"
@@ -94,7 +95,7 @@ const isFlipped = ref(false)
               href="#sobre-mim"
               class="inline-flex items-center gap-2 bg-accent text-accent-foreground font-display font-semibold px-8 py-4 rounded-lg hover:bg-accent/90 transition-all text-base hover:shadow-lg hover:shadow-accent/20"
             >
-              Sobre mim
+              {{ t('common.aboutMe') }}
               <UIcon
                 name="i-mdi-arrow-down"
                 class="text-lg"
@@ -104,7 +105,7 @@ const isFlipped = ref(false)
               href="#contato"
               class="inline-flex items-center gap-2 border border-border text-foreground font-display font-semibold px-8 py-4 rounded-lg hover:bg-secondary transition-all text-base"
             >
-              Contato
+              {{ t('common.contact') }}
               <UIcon
                 name="i-mdi-sparkles"
                 class="text-lg"

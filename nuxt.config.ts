@@ -38,7 +38,6 @@ export default defineNuxtConfig({
       { code: 'pt-BR', file: 'pt-BR.json' },
       { code: 'en-US', file: 'en-US.json' }
     ],
-    strategy: 'no_prefix'
   },
   components: [
     { path: '~/components/atoms', pathPrefix: false },

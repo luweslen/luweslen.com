@@ -148,23 +148,29 @@ onUnmounted(() => {
         </button>
       </nav>
 
-      <!-- Mobile Menu Button -->
-      <button
-        class="md:hidden text-foreground p-2 rounded-full hover:bg-secondary/50 transition-colors"
-        aria-label="Menu"
-        @click="mobileOpen = !mobileOpen"
-      >
-        <UIcon
-          v-if="mobileOpen"
-          name="i-mdi-close"
-          class="text-xl"
-        />
-        <UIcon
-          v-else
-          name="i-mdi-menu"
-          class="text-xl"
-        />
-      </button>
+      <!-- Actions -->
+      <div class="flex items-center gap-2">
+        <!-- Language Selector -->
+        <LanguageButton />
+
+        <!-- Mobile Menu Button -->
+        <button
+          class="md:hidden text-foreground p-2 rounded-full hover:bg-secondary/50 transition-colors"
+          aria-label="Menu"
+          @click="mobileOpen = !mobileOpen"
+        >
+          <UIcon
+            v-if="mobileOpen"
+            name="i-mdi-close"
+            class="text-xl"
+          />
+          <UIcon
+            v-else
+            name="i-mdi-menu"
+            class="text-xl"
+          />
+        </button>
+      </div>
     </div>
 
     <!-- Mobile Navigation -->
