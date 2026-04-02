@@ -24,20 +24,21 @@
         v-if="langOpen"
         class="absolute right-0 top-full mt-2 bg-card border border-border rounded-xl shadow-xl overflow-hidden min-w-[140px]"
       >
-        <button
+        <NuxtLink
           v-for="lang in languages"
           :key="lang.code"
+          :to="switchLocalePath(lang.code)"
           :class="[
             'w-full flex items-center gap-3 px-4 py-2.5 text-sm font-body transition-colors',
             locale === lang.code
               ? 'bg-accent/10 text-accent'
               : 'text-muted-foreground hover:bg-secondary/50 hover:text-foreground'
           ]"
-          @click="selectLanguage(lang.code)"
+          @click="langOpen = false"
         >
           <span class="font-display font-semibold text-xs w-6">{{ lang.label }}</span>
           <span>{{ lang.full }}</span>
-        </button>
+        </NuxtLink>
       </div>
     </Transition>
   </div>
@@ -51,11 +52,12 @@ enum LocaleCode {
   EN_US = 'en-US'
 }
 
-const { t, locale, setLocale } = useI18n()
+const { t, locale } = useI18n()
+const switchLocalePath = useSwitchLocalePath()
 
 const langOpen = ref(false)
 
-const languages = ref([
+const languages = computed(() => [
   { code: LocaleCode.PT_BR, label: 'PT', full: t('common.portuguese') },
   { code: LocaleCode.EN_US, label: 'EN', full: t('common.english') },
 ])
@@ -64,11 +66,6 @@ const currentLangLabel = computed(() => {
   const lang = languages.value.find(l => l.code === locale.value)
   return lang?.label || 'PT'
 })
-
-const selectLanguage = (code: LocaleCode) => {
-  setLocale(code)
-  langOpen.value = false
-}
 
 const handleClickOutside = (event: MouseEvent) => {
   const target = event.target as HTMLElement

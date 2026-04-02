@@ -27,7 +27,7 @@ const contacts = [
 
 <template>
   <section
-    id="contato"
+    id="contact"
     class="py-24 px-6 lg:px-16"
   >
     <div class="container mx-auto max-w-6xl">

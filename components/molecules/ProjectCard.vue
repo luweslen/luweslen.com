@@ -6,6 +6,7 @@ defineProps<{
   link: string
   linkText: string
   coverClass?: string
+  logo?: string
 }>()
 </script>
 
@@ -18,7 +19,22 @@ defineProps<{
         coverClass || 'bg-secondary'
       ]"
     >
-      <span class="font-display text-3xl font-bold text-foreground/50">{{ title }}</span>
+      <span
+        v-if="logo"
+        class="h-48 w-48"
+      >
+        <NuxtImg
+          :src="logo"
+          :alt="title"
+          class="object-contain h-full w-full"
+          loading="lazy"
+          format="webp"
+        />
+      </span>
+      <span
+        v-else
+        class="font-display text-3xl font-bold text-foreground/50"
+      >{{ title }}</span>
     </div>
 
     <!-- Content -->

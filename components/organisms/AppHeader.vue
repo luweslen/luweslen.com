@@ -1,30 +1,43 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import { Motion, AnimatePresence } from 'motion-v'
+import { Motion } from 'motion-v'
 
-const navItems = [
-  { label: 'Início', href: '/', anchor: '#inicio', page: '/', icon: 'i-mdi-home' },
-  { label: 'Sobre', href: '/#sobre-mim', anchor: '#sobre-mim', page: '/sobre', icon: 'i-mdi-account' },
-  { label: 'Habilidades', href: '/#habilidades', anchor: '#habilidades', page: '/habilidades', icon: 'i-mdi-lightning-bolt' },
-  { label: 'Projetos', href: '/#projetos', anchor: '#projetos', page: '/projetos', icon: 'i-mdi-folder' },
-  { label: 'Palestras', href: '/talks', anchor: '#palestras', page: '/talks', icon: 'i-mdi-microphone' },
-  { label: 'Contato', href: '/#contato', anchor: '#contato', page: '', icon: 'i-mdi-email' },
-  { label: 'CV', href: '/curriculum', anchor: '', page: '/curriculum', icon: 'i-mdi-file-document' },
-]
-
-const scrolled = ref(false)
-const mobileOpen = ref(false)
-const activeSection = ref('#inicio')
+const { t } = useI18n()
+const localePath = useLocalePath()
 const route = useRoute()
 const router = useRouter()
 
-const isHome = computed(() => route.path === '/')
+const navItems = computed(() => [
+  { label: t('nav.home'), href: '/', anchor: '#home', page: '/', icon: 'i-mdi-home' },
+  { label: t('nav.about'), href: '/#about', anchor: '#about', page: '/about', icon: 'i-mdi-account' },
+  { label: t('nav.skills'), href: '/#skills', anchor: '#skills', page: '/skills', icon: 'i-mdi-lightning-bolt' },
+  { label: t('nav.projects'), href: '/#projects', anchor: '#projects', page: '/projects', icon: 'i-mdi-folder' },
+  { label: t('nav.talks'), href: '/talks', anchor: '#talks', page: '/talks', icon: 'i-mdi-microphone' },
+  { label: t('nav.contact'), href: '/#contact', anchor: '#contact', page: '', icon: 'i-mdi-email' },
+  { label: t('nav.cv'), href: '/curriculum', anchor: '', page: '/curriculum', icon: 'i-mdi-file-document' },
+])
+
+const scrolled = ref(false)
+const mobileOpen = ref(false)
+const activeSection = ref('#home')
+
+// Check if on home page (consider locale prefixes)
+const isHome = computed(() => {
+  const homePath = localePath('/')
+  return route.path === homePath || route.path === homePath + '/'
+})
+
+// Get the base path without locale prefix for comparison
+const getBasePath = (path: string) => {
+  return path.replace(/^\/(pt-BR|en-US)/, '') || '/'
+}
 
 const activeHref = computed(() => {
+  const basePath = getBasePath(route.path)
+  
   // If on a dedicated page, find matching nav item
   if (!isHome.value) {
-    const matchingItem = navItems.find((item) => item.page === route.path)
+    const matchingItem = navItems.value.find((item) => item.page === basePath)
     if (matchingItem) {
       return matchingItem.href
     }
@@ -32,11 +45,11 @@ const activeHref = computed(() => {
   }
 
   // On home page, use active section
-  const matchingItem = navItems.find((item) => item.anchor === activeSection.value)
+  const matchingItem = navItems.value.find((item) => item.anchor === activeSection.value)
   return matchingItem?.href || '/'
 })
 
-const handleNav = (item: typeof navItems[0]) => {
+const handleNav = (item: typeof navItems.value[0]) => {
   mobileOpen.value = false
 
   if (isHome.value && item.anchor) {
@@ -48,17 +61,17 @@ const handleNav = (item: typeof navItems[0]) => {
   }
 
   if (item.href.startsWith('/#')) {
-    router.push({ path: '/', hash: item.href.replace('/#', '#') })
+    router.push({ path: localePath('/'), hash: item.href.replace('/#', '#') })
     return
   }
 
-  router.push(item.href)
+  router.push(localePath(item.href))
 }
 
 const updateActiveSection = () => {
   if (!isHome.value) return
 
-  const sections = ['#inicio', '#sobre-mim', '#habilidades', '#projetos', '#palestras', '#contato'] as const
+  const sections = ['#home', '#about', '#skills', '#projects', '#talks', '#contact'] as const
   const scrollPosition = window.scrollY + 150 // Offset for header
 
   for (let i = sections.length - 1; i >= 0; i--) {
@@ -75,7 +88,7 @@ const updateActiveSection = () => {
     }
   }
 
-  activeSection.value = '#inicio'
+  activeSection.value = '#home'
 }
 
 const onScroll = () => {
@@ -174,13 +187,17 @@ onUnmounted(() => {
     </div>
 
     <!-- Mobile Navigation -->
-    <AnimatePresence>
-      <Motion
+    <Transition
+      enter-active-class="transition-all duration-200"
+      enter-from-class="opacity-0 -translate-y-2"
+      enter-to-class="opacity-100 translate-y-0"
+      leave-active-class="transition-all duration-200"
+      leave-from-class="opacity-100 translate-y-0"
+      leave-to-class="opacity-0 -translate-y-2"
+    >
+      <div
         v-if="mobileOpen"
-        :initial="{ opacity: 0, height: 0 }"
-        :animate="{ opacity: 1, height: 'auto' }"
-        :exit="{ opacity: 0, height: 0 }"
-        class="md:hidden bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden"
+        class="md:hidden bg-background/95 backdrop-blur-xl border-b border-border"
       >
         <div class="px-6 py-4 flex flex-col gap-1">
           <button
@@ -203,7 +220,7 @@ onUnmounted(() => {
             {{ item.label }}
           </button>
         </div>
-      </Motion>
-    </AnimatePresence>
+      </div>
+    </Transition>
   </header>
 </template>

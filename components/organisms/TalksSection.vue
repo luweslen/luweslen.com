@@ -2,11 +2,14 @@
 import { Motion } from 'motion-v'
 
 const { t } = useI18n()
+const localePath = useLocalePath()
+const { latestTalk } = useTalks()
+
 </script>
 
 <template>
   <section
-    id="palestras"
+    id="talks"
     class="py-24 px-6 lg:px-16 bg-secondary/30"
   >
     <div class="container mx-auto max-w-6xl">
@@ -23,9 +26,9 @@ const { t } = useI18n()
           size="sm"
         />
         <div>
-          <span class="font-display text-sm font-semibold text-accent block">2026</span>
+          <span class="font-display text-sm font-semibold text-accent block">{{ latestTalk[0]?.year }}</span>
           <h3 class="font-display text-base font-medium text-foreground">
-            {{ t('talks.sponsorship.title') }}
+            {{ latestTalk[0]?.title }}
           </h3>
           <p class="text-sm text-muted-foreground mt-1">
             +1 {{ t('common.talk') }}
@@ -39,7 +42,7 @@ const { t } = useI18n()
         :transition="{ delay: 0.3 }"
       >
         <CallToActionLink
-          to="/talks"
+          :to="localePath('/talks')"
           :label="t('common.viewMore')"
         />
       </Motion>

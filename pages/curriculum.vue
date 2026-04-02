@@ -1,5 +1,27 @@
 <script setup lang="ts">
+import type { SkillLevel } from '~/types'
+
 const { t } = useI18n()
+const localePath = useLocalePath()
+
+// SEO Meta Tags
+useSeoMeta({
+  title: () => `${t('pages.curriculum.title')} | Luciano Weslen`,
+  description: () => t('pages.curriculum.seo.description'),
+  ogTitle: () => `${t('pages.curriculum.title')} | Luciano Weslen`,
+  ogDescription: () => t('pages.curriculum.seo.ogDescription'),
+  ogUrl: () => `https://luweslen.com${localePath('/curriculum')}`,
+  robots: 'noindex, nofollow',
+})
+
+useHead({
+  link: [
+    { rel: 'canonical', href: () => `https://luweslen.com${localePath('/curriculum')}` },
+    { rel: 'alternate', hreflang: 'pt-BR', href: 'https://luweslen.com/pt-BR/curriculum' },
+    { rel: 'alternate', hreflang: 'en-US', href: 'https://luweslen.com/en-US/curriculum' },
+    { rel: 'alternate', hreflang: 'x-default', href: 'https://luweslen.com/pt-BR/curriculum' },
+  ]
+})
 
 const generating = ref(false)
 const cvRef = ref<HTMLDivElement | null>(null)
@@ -34,40 +56,14 @@ const handleDownload = async () => {
   }
 }
 
-const educations = computed(() => [
-  {
-    institution: t('education.institutions.ifpr'),
-    course: t('education.courses.analysis'),
-    period: 'dez. de 2019 – mar. de 2023',
-  },
-  {
-    institution: t('education.institutions.ifpr'),
-    course: t('education.courses.technician'),
-    period: 'dez. de 2015 – dez. de 2019',
-  },
-])
+const educationData = useEducation()
+const educations = computed(() => educationData.value.map(edu => ({
+  institution: edu.institution.split(' – ')[0],
+  course: edu.title,
+  period: edu.period,
+})))
 
-const experiences = computed(() => [
-  {
-    company: 'ZRP',
-    tags: ['VueJS', 'NestJS', 'MongoDB', 'PostgreSQL', 'TypeScript', 'AWS'],
-    roles: [
-      { title: t('experience.positions.chapterLeader'), period: 'ago. de 2024 – ' + t('current').toLowerCase() },
-      { title: t('experience.positions.developer'), period: 'ago. de 2023 – ' + t('current').toLowerCase() },
-      { title: t('experience.positions.junior'), period: 'mar. de 2022 – ago. de 2023' },
-    ],
-  },
-  {
-    company: 'tilit / UIRD',
-    tags: ['VueJS', 'NodeJS', 'MongoDB', 'TypeScript', 'Python', 'Flask'],
-    roles: [
-      { title: t('experience.positions.junior'), period: 'jun. de 2021 – mar. de 2022' },
-      { title: t('experience.positions.intern'), period: 'fev. de 2020 – jun. de 2021' },
-    ],
-  },
-])
-
-type SkillLevel = 'frequent' | 'occasional' | 'sometimes'
+const experiences = useExperiences({ format: 'cv' })
 
 const levelPercent: Record<SkillLevel, number> = {
   frequent: 100,
@@ -75,114 +71,7 @@ const levelPercent: Record<SkillLevel, number> = {
   sometimes: 30,
 }
 
-const skillCategories = computed(() => [
-  {
-    title: t('skills.categories.programming'),
-    rows: [
-      {
-        label: t('skills.subcategories.frontend'),
-        tags: [
-          { name: 'JavaScript', level: 'frequent' as SkillLevel },
-          { name: 'TypeScript', level: 'frequent' as SkillLevel },
-          { name: 'HTML', level: 'frequent' as SkillLevel },
-          { name: 'CSS', level: 'frequent' as SkillLevel },
-          { name: 'JSON', level: 'occasional' as SkillLevel },
-          { name: 'GraphQL', level: 'sometimes' as SkillLevel },
-        ],
-      },
-      {
-        label: t('skills.subcategories.backend'),
-        tags: [
-          { name: 'JavaScript', level: 'frequent' as SkillLevel },
-          { name: 'TypeScript', level: 'frequent' as SkillLevel },
-          { name: 'Python', level: 'sometimes' as SkillLevel },
-          { name: 'Ruby', level: 'sometimes' as SkillLevel },
-          { name: 'Java', level: 'sometimes' as SkillLevel },
-        ],
-      },
-      {
-        label: t('skills.subcategories.database'),
-        tags: [{ name: 'SQL', level: 'frequent' as SkillLevel }],
-      },
-    ],
-  },
-  {
-    title: t('skills.categories.technologies'),
-    rows: [
-      {
-        label: t('skills.subcategories.frontend'),
-        tags: [
-          { name: 'VueJS', level: 'frequent' as SkillLevel },
-          { name: 'Quasar', level: 'frequent' as SkillLevel },
-          { name: 'ViteJS', level: 'frequent' as SkillLevel },
-          { name: 'NuxtJS', level: 'occasional' as SkillLevel },
-          { name: 'Webpack', level: 'occasional' as SkillLevel },
-          { name: 'ReactJS', level: 'occasional' as SkillLevel },
-          { name: 'TailwindCSS', level: 'occasional' as SkillLevel },
-          { name: 'Bootstrap', level: 'sometimes' as SkillLevel },
-        ],
-      },
-      {
-        label: t('skills.subcategories.backend'),
-        tags: [
-          { name: 'NodeJS', level: 'frequent' as SkillLevel },
-          { name: 'NestJS', level: 'frequent' as SkillLevel },
-          { name: 'ExpressJS', level: 'occasional' as SkillLevel },
-          { name: 'Fastify', level: 'occasional' as SkillLevel },
-          { name: 'TypeORM', level: 'occasional' as SkillLevel },
-          { name: 'Prisma', level: 'occasional' as SkillLevel },
-          { name: 'Flask', level: 'sometimes' as SkillLevel },
-          { name: 'Ruby on Rails', level: 'sometimes' as SkillLevel },
-        ],
-      },
-      {
-        label: t('skills.subcategories.devops'),
-        tags: [
-          { name: 'Docker', level: 'frequent' as SkillLevel },
-          { name: 'AWS', level: 'frequent' as SkillLevel },
-        ],
-      },
-      {
-        label: t('skills.subcategories.database'),
-        tags: [
-          { name: 'MongoDB', level: 'frequent' as SkillLevel },
-          { name: 'PostgreSQL', level: 'frequent' as SkillLevel },
-          { name: 'Redis', level: 'occasional' as SkillLevel },
-        ],
-      },
-    ],
-  },
-  {
-    title: t('skills.categories.tools'),
-    rows: [
-      {
-        label: t('skills.subcategories.general'),
-        tags: [
-          { name: 'Git', level: 'frequent' as SkillLevel },
-          { name: 'GitHub', level: 'frequent' as SkillLevel },
-          { name: 'GitLab', level: 'occasional' as SkillLevel },
-          { name: 'VSCode', level: 'frequent' as SkillLevel },
-          { name: 'Jira', level: 'frequent' as SkillLevel },
-        ],
-      },
-    ],
-  },
-  {
-    title: t('skills.categories.soft'),
-    rows: [
-      {
-        label: t('skills.subcategories.general'),
-        tags: [
-          { name: t('skills.teamWork'), level: 'frequent' as SkillLevel },
-          { name: t('skills.communication'), level: 'frequent' as SkillLevel },
-          { name: t('skills.proactivity'), level: 'frequent' as SkillLevel },
-          { name: t('skills.leadership'), level: 'frequent' as SkillLevel },
-          { name: t('skills.creativity'), level: 'frequent' as SkillLevel },
-        ],
-      },
-    ],
-  },
-])
+const { skillsByCategory } = useSkills()
 
 const skillLegend = computed(() => [
   { label: t('skills.legend.frequent'), pct: 100 },
@@ -196,7 +85,7 @@ const skillLegend = computed(() => [
     <!-- Top bar with back link and download button -->
     <div class="max-w-[210mm] mx-auto mb-4 flex justify-between print:hidden">
       <NuxtLink
-        to="/"
+        :to="localePath('/')"
         class="inline-flex items-center gap-2 text-sm text-[hsl(240,5%,40%)] hover:text-[hsl(240,10%,12%)] transition-colors"
       >
         <UIcon
@@ -230,7 +119,7 @@ const skillLegend = computed(() => [
         style="background: linear-gradient(135deg, hsl(240, 10%, 12%) 0%, hsl(240, 8%, 20%) 100%)"
       >
         <NuxtLink
-          to="/"
+          :to="localePath('/')"
           class="inline-block text-white no-underline hover:opacity-80 transition-opacity print:pointer-events-none"
         >
           <h1
@@ -253,14 +142,14 @@ const skillLegend = computed(() => [
             Londrina, Brasil
           </span>
           <a
-            href="mailto:luciano.weslen11@gmail.com"
+            href="mailto:luciano.weslen1@gmail.com"
             class="flex items-center gap-1.5 hover:text-white transition-colors no-underline text-[hsl(240,5%,70%)]"
           >
             <UIcon
               name="i-mdi-email"
               class="text-accent text-sm"
             />
-            luciano.weslen11@gmail.com
+            luciano.weslen1@gmail.com
           </a>
         </div>
 
@@ -404,7 +293,7 @@ const skillLegend = computed(() => [
             </div>
 
             <div
-              v-for="category in skillCategories"
+              v-for="category in skillsByCategory"
               :key="category.title"
             >
               <p class="font-semibold text-sm text-[hsl(240,10%,12%)] mb-2">
@@ -412,24 +301,27 @@ const skillLegend = computed(() => [
               </p>
               <div class="space-y-2">
                 <div
-                  v-for="row in category.rows"
-                  :key="row.label"
                   class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4"
                 >
-                  <span class="text-xs text-[hsl(240,5%,45%)] w-28 shrink-0">{{ row.label }}</span>
                   <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-1.5 flex-1">
                     <div
-                      v-for="tag in row.tags"
-                      :key="tag.name"
+                      v-for="tag in category.skills.slice(0, 3)"
+                      :key="tag.title"
                       class="flex items-center gap-2"
                     >
-                      <span class="text-[10px] text-[hsl(240,10%,20%)] w-20 shrink-0 truncate">{{ tag.name }}</span>
+                      <span class="text-[10px] text-[hsl(240,10%,20%)] w-20 shrink-0 truncate">{{ tag.title }}</span>
                       <div class="flex-1 h-1.5 rounded-full bg-[hsl(240,5%,88%)] overflow-hidden min-w-[40px]">
                         <div
                           class="h-full rounded-full bg-[hsl(240,10%,20%)]"
                           :style="{ width: `${levelPercent[tag.level]}%` }"
                         />
                       </div>
+                    </div>
+                    <div
+                      v-if="category.skills.length > 3"
+                      class="flex items-center gap-2"
+                    >
+                      <span class="text-[10px] text-[hsl(240,5%,55%)] italic">{{ t('skills.andOthers') }}</span>
                     </div>
                   </div>
                 </div>
@@ -444,6 +336,7 @@ const skillLegend = computed(() => [
         <span class="font-display text-sm font-bold tracking-tight">
           <span class="text-accent">L</span>
           <span class="text-[hsl(240,10%,20%)]">W</span>
+          <span class="text-accent">.</span>
         </span>
         <p class="text-[10px] text-[hsl(240,5%,55%)] flex items-center gap-1">
           © {{ new Date().getFullYear() }} Feito com

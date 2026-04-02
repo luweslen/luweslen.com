@@ -1,0 +1,15 @@
+# Robots.txt para luweslen.com
+User-agent: *
+Allow: /
+
+# Permitir recursos necessários para renderização
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.svg$
+Allow: /*.webp$
+
+# Sitemap
+Sitemap: https://luweslen.com/sitemap.xml

@@ -2,11 +2,12 @@
 import { Motion } from 'motion-v'
 
 const { t } = useI18n()
+const localePath = useLocalePath()
 </script>
 
 <template>
   <section
-    id="sobre-mim"
+    id="about"
     class="py-24 px-6 lg:px-16"
   >
     <div class="container mx-auto max-w-6xl">
@@ -34,7 +35,7 @@ const { t } = useI18n()
         :transition="{ delay: 0.3 }"
       >
         <CallToActionLink
-          to="/sobre"
+          :to="localePath('/about')"
           :label="t('common.viewMore')"
         />
       </Motion>

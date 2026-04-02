@@ -1,4 +1,13 @@
 {
+  "nav": {
+    "home": "Início",
+    "about": "Sobre",
+    "skills": "Habilidades",
+    "projects": "Projetos",
+    "talks": "Palestras",
+    "contact": "Contato",
+    "cv": "CV"
+  },
   "common": {
     "backToHome": "Voltar ao início",
     "viewSlides": "Ver slides",
@@ -22,7 +31,7 @@
     "backend": "Backend",
     "frontend": "Frontend",
     "architecture": "Arquitetura",
-    "moreAreas": "+2 áreas"
+    "moreAreas": "+{0} áreas"
   },
   "sections": {
     "about": "Sobre mim:",
@@ -34,22 +43,42 @@
   "pages": {
     "talks": {
       "title": "Palestras",
-      "pageTitle": "Palestras & Slides"
+      "pageTitle": "Palestras & Slides",
+      "seo": {
+        "description": "Palestras e apresentações de Luciano Weslen sobre desenvolvimento de software, otimização de CI/CD para NestJS, apadrinhamento e compartilhamento de conhecimento técnico.",
+        "ogDescription": "Palestras e apresentações de Luciano Weslen sobre desenvolvimento de software, CI/CD e mentoria."
+      }
     },
     "skills": {
       "title": "Habilidades",
-      "fullStack": "Stack Tecnológica Completa"
+      "fullStack": "Stack Tecnológica Completa",
+      "seo": {
+        "description": "Conheça as habilidades técnicas de Luciano Weslen: Node.js, TypeScript, NestJS, Vue.js, React, PostgreSQL, MongoDB, AWS, Docker, CI/CD e mais. Stack completa para desenvolvimento backend e frontend.",
+        "ogDescription": "Conheça as habilidades técnicas de Luciano Weslen: Node.js, TypeScript, NestJS, Vue.js, PostgreSQL, MongoDB, AWS e mais."
+      }
     },
     "projects": {
-      "title": "Projetos"
+      "title": "Projetos",
+      "seo": {
+        "description": "Explore os projetos desenvolvidos por Luciano Weslen, incluindo APIs REST, aplicações Node.js, TypeScript, Vue.js e soluções com AWS. Trabalhos com tecnologias modernas e boas práticas de desenvolvimento.",
+        "ogDescription": "Explore os projetos desenvolvidos por Luciano Weslen, incluindo APIs REST, aplicações Node.js, TypeScript, Vue.js e soluções com AWS."
+      }
     },
     "about": {
       "title": "Sobre mim",
       "professionalExperience": "Experiência Profissional",
-      "academicEducation": "Formação Acadêmica"
+      "academicEducation": "Formação Acadêmica",
+      "seo": {
+        "description": "Conheça Luciano Weslen, desenvolvedor de software com quase 3 anos de experiência na ZRP, especializado em Node.js, TypeScript, AWS e desenvolvimento de soluções escaláveis para o mercado financeiro.",
+        "ogDescription": "Conheça Luciano Weslen, desenvolvedor de software com quase 3 anos de experiência na ZRP, especializado em Node.js, TypeScript, AWS e desenvolvimento de soluções escaláveis para o mercado financeiro."
+      }
     },
     "curriculum": {
-      "title": "Currículo"
+      "title": "Currículo",
+      "seo": {
+        "description": "Currículo completo de Luciano Weslen - Desenvolvedor de Software com experiência em Node.js, TypeScript, AWS. Download em PDF disponível.",
+        "ogDescription": "Currículo completo de Luciano Weslen - Desenvolvedor de Software com experiência em Node.js, TypeScript, AWS."
+      }
     }
   },
   "talks": {
@@ -185,67 +214,164 @@
   },
   "skills": {
     "title": "Habilidades",
-    "backendDev": {
-      "title": "Desenvolvimento Backend",
-      "description": "APIs robustas, microsserviços e integrações escaláveis com foco em performance e segurança."
-    },
-    "frontendDev": {
-      "title": "Desenvolvimento Frontend",
-      "description": "Interfaces modernas e responsivas com experiência de usuário intuitiva e acessível."
-    },
-    "mobileDev": {
-      "title": "Desenvolvimento Mobile",
-      "description": "Aplicativos nativos e multiplataforma com experiências fluidas e performáticas."
-    },
-    "projectManagement": {
-      "title": "Gestão de Projetos",
-      "description": "Planejamento, execução e entrega de projetos com metodologias ágeis e foco em resultados."
-    },
-    "systemsArchitecture": {
-      "title": "Arquitetura de Sistemas",
-      "description": "Design de soluções escaláveis, resilientes e de alta disponibilidade."
-    },
-    "indicators": {
+    "andOthers": "entre outros",
+    "levels": {
       "title": "Indicadores",
       "used": "Usado",
       "often": "Frequentemente",
       "occasionally": "Ocasionalmente",
       "sometimes": "Às vezes"
     },
-    "categories": {
-      "programming": "Programação",
-      "languages": "Linguagens",
-      "technologies": "Tecnologias",
-      "tools": "Ferramentas",
-      "soft": "Interpessoais"
-    },
-    "subcategories": {
-      "frontend": "Frontend",
-      "backend": "Backend",
-      "devops": "DevOps",
-      "ui": "UI/UX",
-      "database": "Banco de dados",
-      "code": "Código",
-      "general": "Geral"
-    },
-    "teamWork": "Trabalho em equipe",
-    "creativity": "Criatividade",
-    "communication": "Comunicação",
-    "proactivity": "Proatividade",
-    "leadership": "Liderança",
-    "techStack": {
-      "backend": "Back-end",
-      "frontend": "Front-end",
-      "database": "Banco de Dados",
-      "cloudDevops": "Cloud & DevOps",
-      "testing": "Testes",
-      "unitTests": "Testes Unitários",
-      "integrationTests": "Testes de Integração"
-    },
     "legend": {
-      "frequent": "Uso frequente",
-      "occasional": "Uso ocasional",
-      "sporadic": "Uso esporádico"
+      "frequent": "Frequentemente",
+      "occasional": "Ocasionalmente",
+      "sporadic": "Esporádico"
+    },
+    "categories": {
+      "programming": {
+        "title": "Linguagens de Programação",
+        "description": "Linguagens que domino e utilizo regularmente em projetos de desenvolvimento de software."
+      },
+      "backend": {
+        "title": "Backend",
+        "description": "Desenvolvimento de serviços e APIs robustas, escaláveis e seguras."
+      },
+      "frontend": {
+        "title": "Frontend",
+        "description": "Criação de interfaces modernas, responsivas e acessíveis."
+      },
+      "mobile": {
+        "title": "Mobile",
+        "description": "Desenvolvimento de aplicativos móveis nativos e multiplataforma."
+      },
+      "tools": {
+        "title": "Ferramentas",
+        "description": "Ferramentas e tecnologias que utilizo para aumentar a produtividade e eficiência."
+      },
+      "methodologies": {
+        "title": "Metodologias",
+        "description": "Práticas e abordagens para gerenciar e executar projetos de forma eficiente."
+      },
+      "softSkills": {
+        "title": "Interpessoais",
+        "description": "Habilidades relacionadas à comunicação, colaboração e relacionamento interpessoal."
+      },
+      "devOps": {
+        "title": "DevOps",
+        "description": "Práticas e ferramentas para integração contínua, entrega contínua e automação de infraestrutura."
+      },
+      "database": {
+        "title": "Banco de Dados",
+        "description": "Gerenciamento e manipulação de dados em bancos de dados relacionais e NoSQL."
+      },
+      "devops": {
+        "title": "DevOps",
+        "description": "Práticas e ferramentas para integração contínua, entrega contínua e automação de infraestrutura."
+      }
+    },
+    "javascript": {
+      "title": "JavaScript",
+      "description": "Linguagem de programação versátil para desenvolvimento web, com ampla adoção e ecossistema rico."
+    },
+    "typescript": {
+      "title": "TypeScript",
+      "description": "Superset do JavaScript que adiciona tipagem estática, melhorando a manutenção e escalabilidade do código."
+    },
+    "python": {
+      "title": "Python",
+      "description": "Linguagem de programação de alto nível, conhecida por sua simplicidade e legibilidade, amplamente usada em ciência de dados, web e automação."
+    },
+    "java": {
+      "title": "Java",
+      "description": "Linguagem de programação orientada a objetos, amplamente utilizada em aplicações corporativas e desenvolvimento Android."
+    },
+    "sql": {
+      "title": "SQL",
+      "description": "Linguagem de consulta estruturada para gerenciamento e manipulação de bancos de dados relacionais."
+    },
+    "vueJS": {
+      "title": "Vue.js",
+      "description": "Framework JavaScript progressivo para construção de interfaces de usuário interativas e reativas."
+    },
+    "reactJS": {
+      "title": "React.js",
+      "description": "Biblioteca JavaScript para construção de interfaces de usuário, focada em componentes reutilizáveis e desempenho."
+    },
+    "tailwind": {
+      "title": "Tailwind CSS",
+      "description": "Framework CSS utilitário para criação rápida de interfaces modernas e responsivas."
+    },
+    "nodeJS": {
+      "title": "Node.js",
+      "description": "Ambiente de execução JavaScript no lado do servidor, permitindo desenvolvimento de aplicações escaláveis e de alto desempenho."
+    },
+    "nestJS": {
+      "title": "NestJS",
+      "description": "Framework Node.js progressivo para construção de aplicações escaláveis e eficientes, utilizando TypeScript."
+    },
+    "postgreSQL": {
+      "title": "PostgreSQL",
+      "description": "Sistema de gerenciamento de banco de dados relacional avançado, conhecido por sua robustez e conformidade com padrões SQL."
+    },
+    "mongoDB": {
+      "title": "MongoDB",
+      "description": "Banco de dados NoSQL orientado a documentos, ideal para aplicações que exigem escalabilidade e flexibilidade."
+    },
+    "reactNative": {
+      "title": "React Native",
+      "description": "Framework para desenvolvimento de aplicativos móveis nativos usando JavaScript e React."
+    },
+    "docker": {
+      "title": "Docker",
+      "description": "Plataforma de containerização que permite empacotar aplicações e suas dependências de forma consistente."
+    },
+    "aws": {
+      "title": "AWS",
+      "description": "Serviços de computação em nuvem da Amazon, oferecendo infraestrutura escalável e confiável."
+    },
+    "git": {
+      "title": "Git",
+      "description": "Sistema de controle de versão distribuído, essencial para colaboração e gerenciamento de código-fonte."
+    },
+    "projectManagement": {
+      "title": "Gestão de Projetos",
+      "description": "Habilidades e práticas para planejar, executar e finalizar projetos de forma eficiente."
+    },
+    "teamWork": {
+      "title": "Trabalho em Equipe",
+      "description": "Capacidade de colaborar efetivamente com outros para alcançar objetivos comuns."
+    },
+    "communication": {
+      "title": "Comunicação",
+      "description": "Habilidade de transmitir informações de forma clara e eficaz, tanto verbalmente quanto por escrito."
+    },
+    "ruby": {
+      "title": "Ruby",
+      "description": "Linguagem de programação dinâmica e de alto nível, conhecida por sua sintaxe elegante e facilidade de uso, amplamente utilizada em desenvolvimento web com o framework Ruby on Rails."
+    },
+    "quasar": {
+      "title": "Quasar Framework",
+      "description": "Framework Vue.js para desenvolvimento de interfaces de usuário responsivas e interativas, com suporte a múltiplas plataformas."
+    },
+    "nuxtjs": {
+      "title": "Nuxt.js",
+      "description": "Framework Vue.js para desenvolvimento de aplicações universais, com renderização do lado servidor e geração de sites estáticos."
+    },
+    "redis": {
+      "title": "Redis",
+      "description": "Banco de dados em memória, utilizado como cache e message broker, conhecido por sua alta performance e suporte a estruturas de dados avançadas."
+    },
+    "expo": {
+      "title": "Expo",
+      "description": "Plataforma para desenvolvimento de aplicativos móveis com React Native, oferecendo ferramentas e serviços para acelerar o processo de desenvolvimento."
+    },
+    "kanban": {
+      "title": "Kanban",
+      "description": "Metodologia ágil para gerenciamento de projetos, focada em visualização do fluxo de trabalho e melhoria contínua."
+    },
+    "scrum": {
+      "title": "Scrum",
+      "description": "Framework ágil para gerenciamento de projetos, baseado em ciclos iterativos e incrementais, com foco em colaboração e entrega contínua."
     }
   },
   "projects": {

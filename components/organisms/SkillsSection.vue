@@ -2,17 +2,14 @@
 import { Motion } from 'motion-v'
 
 const { t } = useI18n()
+const localePath = useLocalePath()
 
-const previewSkills = computed(() => [
-  { icon: 'i-mdi-server', title: t('skillsPreview.backend') },
-  { icon: 'i-mdi-monitor', title: t('skillsPreview.frontend') },
-  { icon: 'i-mdi-sitemap', title: t('skillsPreview.architecture') },
-])
+const {skillsByCategory} = useSkills()
 </script>
 
 <template>
   <section
-    id="habilidades"
+    id="skills"
     class="py-24 px-6 lg:px-16 bg-secondary/30"
   >
     <div class="container mx-auto max-w-6xl">
@@ -25,18 +22,18 @@ const previewSkills = computed(() => [
         :transition="{ duration: 0.5 }"
       >
         <div
-          v-for="skill in previewSkills"
-          :key="skill.title"
+          v-for="category in skillsByCategory.slice(0, 5)"
+          :key="category.title"
           class="flex items-center gap-3 bg-card border border-border rounded-xl px-5 py-4"
         >
           <IconBadge
-            :icon="skill.icon"
+            :icon="category.icon"
             size="sm"
           />
-          <span class="font-display text-sm font-semibold text-foreground">{{ skill.title }}</span>
+          <span class="font-display text-sm font-semibold text-foreground">{{ category.title }}</span>
         </div>
         <div class="flex items-center text-muted-foreground text-sm font-medium px-4">
-          {{ t('skillsPreview.moreAreas') }}
+          {{ t('skillsPreview.moreAreas', [skillsByCategory.length - 5]) }}
         </div>
       </Motion>
 
@@ -46,7 +43,7 @@ const previewSkills = computed(() => [
         :transition="{ delay: 0.3 }"
       >
         <CallToActionLink
-          to="/habilidades"
+          :to="localePath('/skills')"
           :label="t('common.viewMore')"
         />
       </Motion>

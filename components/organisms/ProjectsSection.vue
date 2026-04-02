@@ -2,16 +2,14 @@
 import { Motion } from 'motion-v'
 
 const { t } = useI18n()
+const localePath = useLocalePath()
 
-const projects = computed(() => [
-  { title: 'COMM.PIX', description: t('projects.commpix.shortDescription') },
-  { title: 'SIMPLE', description: t('projects.simple.shortDescription') },
-])
+const {projects} = useProjects({ preview: true })
 </script>
 
 <template>
   <section
-    id="projetos"
+    id="projects"
     class="py-24 px-6 lg:px-16"
   >
     <div class="container mx-auto max-w-6xl">
@@ -43,7 +41,7 @@ const projects = computed(() => [
         :transition="{ delay: 0.3 }"
       >
         <CallToActionLink
-          to="/projetos"
+          :to="localePath('/projects')"
           :label="t('common.viewMore')"
         />
       </Motion>

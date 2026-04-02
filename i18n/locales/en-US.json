@@ -1,4 +1,13 @@
 {
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "talks": "Talks",
+    "contact": "Contact",
+    "cv": "CV"
+  },
   "common": {
     "backToHome": "Back to home",
     "viewSlides": "View slides",
@@ -34,22 +43,42 @@
   "pages": {
     "talks": {
       "title": "Talks",
-      "pageTitle": "Talks & Slides"
+      "pageTitle": "Talks & Slides",
+      "seo": {
+        "description": "Talks and presentations by Luciano Weslen about software development, CI/CD optimization for NestJS, mentorship and technical knowledge sharing.",
+        "ogDescription": "Talks and presentations by Luciano Weslen about software development, CI/CD and mentorship."
+      }
     },
     "skills": {
       "title": "Skills",
-      "fullStack": "Full Tech Stack"
+      "fullStack": "Full Tech Stack",
+      "seo": {
+        "description": "Discover Luciano Weslen technical skills: Node.js, TypeScript, NestJS, Vue.js, React, PostgreSQL, MongoDB, AWS, Docker, CI/CD and more. Full stack for backend and frontend development.",
+        "ogDescription": "Discover Luciano Weslen technical skills: Node.js, TypeScript, NestJS, Vue.js, PostgreSQL, MongoDB, AWS and more."
+      }
     },
     "projects": {
-      "title": "Projects"
+      "title": "Projects",
+      "seo": {
+        "description": "Explore projects developed by Luciano Weslen, including REST APIs, Node.js applications, TypeScript, Vue.js and solutions with AWS. Work with modern technologies and development best practices.",
+        "ogDescription": "Explore projects developed by Luciano Weslen, including REST APIs, Node.js applications, TypeScript, Vue.js and solutions with AWS."
+      }
     },
     "about": {
       "title": "About me",
       "professionalExperience": "Professional Experience",
-      "academicEducation": "Academic Education"
+      "academicEducation": "Academic Education",
+      "seo": {
+        "description": "Learn about Luciano Weslen, software developer with almost 3 years of experience at ZRP, specialized in Node.js, TypeScript, AWS and developing scalable solutions for the financial market.",
+        "ogDescription": "Learn about Luciano Weslen, software developer with almost 3 years of experience at ZRP, specialized in Node.js, TypeScript, AWS and developing scalable solutions for the financial market."
+      }
     },
     "curriculum": {
-      "title": "Curriculum"
+      "title": "Curriculum",
+      "seo": {
+        "description": "Complete resume of Luciano Weslen - Software Developer with experience in Node.js, TypeScript, AWS. PDF download available.",
+        "ogDescription": "Complete resume of Luciano Weslen - Software Developer with experience in Node.js, TypeScript, AWS."
+      }
     }
   },
   "talks": {
@@ -185,67 +214,160 @@
   },
   "skills": {
     "title": "Skills",
-    "backendDev": {
-      "title": "Backend Development",
-      "description": "Robust APIs, microservices, and scalable integrations with a focus on performance and security."
-    },
-    "frontendDev": {
-      "title": "Frontend Development",
-      "description": "Modern and responsive interfaces with intuitive and accessible user experience."
-    },
-    "mobileDev": {
-      "title": "Mobile Development",
-      "description": "Native and cross-platform apps with smooth and performant experiences."
-    },
-    "projectManagement": {
-      "title": "Project Management",
-      "description": "Planning, execution, and delivery of projects with agile methodologies and focus on results."
-    },
-    "systemsArchitecture": {
-      "title": "Systems Architecture",
-      "description": "Design of scalable, resilient, and highly available solutions."
-    },
-    "indicators": {
-      "title": "Indicators",
+    "andOthers": "among others",
+    "levels": {
+      "title": "Levels",
       "used": "Used",
       "often": "Often",
       "occasionally": "Occasionally",
       "sometimes": "Sometimes"
     },
-    "categories": {
-      "languages": "Languages",
-      "programming": "Programming",
-      "technologies": "Technologies",
-      "tools": "Tools",
-      "soft": "Soft Skills"
-    },
-    "subcategories": {
-      "frontend": "Frontend",
-      "backend": "Backend",
-      "devops": "DevOps",
-      "ui": "UI/UX",
-      "database": "Database",
-      "code": "Code",
-      "general": "General"
-    },
-    "teamWork": "Teamwork",
-    "communication": "Communication",
-    "creativity": "Creativity",
-    "leadership": "Leadership",
-    "proactivity": "Proactivity",
-    "techStack": {
-      "backend": "Backend",
-      "frontend": "Frontend",
-      "database": "Database",
-      "cloudDevops": "Cloud & DevOps",
-      "testing": "Testing",
-      "unitTests": "Unit Tests",
-      "integrationTests": "Integration Tests"
-    },
     "legend": {
-      "frequent": "Frequent use",
-      "occasional": "Occasional use",
-      "sporadic": "Sporadic use"
+      "frequent": "Frequent",
+      "occasional": "Occasional",
+      "sporadic": "Sporadic"
+    },
+    "categories": {
+      "programming": {
+        "title": "Programming Languages",
+        "description": "Languages I master and use regularly in software development projects."
+      },
+      "backend": {
+        "title": "Backend",
+        "description": "Development of robust, scalable, and secure services and APIs."
+      },
+      "frontend": {
+        "title": "Frontend",
+        "description": "Creation of modern, responsive, and accessible interfaces."
+      },
+      "mobile": {
+        "title": "Mobile",
+        "description": "Development of native and cross-platform mobile applications."
+      },
+      "tools": {
+        "title": "Tools",
+        "description": "Tools and technologies I use to increase productivity and efficiency."
+      },
+      "methodologies": {
+        "title": "Methodologies",
+        "description": "Practices and approaches to efficiently manage and execute projects."
+      },
+      "softSkills": {
+        "title": "Soft Skills",
+        "description": "Skills related to communication, collaboration, and interpersonal relationships."
+      },
+      "devOps": {
+        "title": "DevOps",
+        "description": "Practices and tools for continuous integration, continuous delivery, and infrastructure automation."
+      },
+      "database": {
+        "title": "Databases",
+        "description": "Management and manipulation of data in relational and NoSQL databases."
+      },
+      "devops": {
+        "title": "DevOps",
+        "description": "Practices and tools for continuous integration, continuous delivery, and infrastructure automation."
+      },
+      "ruby": {
+        "title": "Ruby",
+        "description": "Dynamic, high-level programming language known for its elegant syntax and ease of use, widely used in web development with the Ruby on Rails framework."
+      },
+      "quasar": {
+        "title": "Quasar Framework",
+        "description": "Vue.js framework for developing responsive and interactive user interfaces, with support for multiple platforms."
+      },
+      "nuxtjs": {
+        "title": "Nuxt.js",
+        "description": "Framework based on Vue.js for building server-side rendered applications and static websites."
+      },
+      "expo": {
+        "title": "Expo",
+        "description": "Framework for building React Native applications, providing tools and services for development and deployment."
+      },
+      "kanban": {
+        "title": "Kanban",
+        "description": "Agile project management methodology focused on visualizing work, limiting work in progress, and optimizing flow."
+      },
+      "scrum": {
+        "title": "Scrum",
+        "description": "Agile framework for managing complex projects, emphasizing teamwork, accountability, and iterative progress."
+      }
+    },
+    "javascript": {
+      "title": "JavaScript",
+      "description": "Versatile programming language for web development, with wide adoption and a rich ecosystem."
+    },
+    "typescript": {
+      "title": "TypeScript",
+      "description": "A superset of JavaScript that adds static typing, improving code maintenance and scalability."
+    },
+    "python": {
+      "title": "Python",
+      "description": "High-level programming language known for its simplicity and readability, widely used in data science, web, and automation."
+    },
+    "java": {
+      "title": "Java",
+      "description": "Object-oriented programming language, widely used in enterprise applications and Android development."
+    },
+    "sql": {
+      "title": "SQL",
+      "description": "Structured query language for managing and manipulating relational databases."
+    },
+    "vueJS": {
+      "title": "Vue.js",
+      "description": "Progressive JavaScript framework for building interactive and reactive user interfaces."
+    },
+    "reactJS": {
+      "title": "React.js",
+      "description": "JavaScript library for building user interfaces, focused on reusable components and performance."
+    },
+    "tailwind": {
+      "title": "Tailwind CSS",
+      "description": "Utility-first CSS framework for rapidly creating modern and responsive interfaces."
+    },
+    "nodeJS": {
+      "title": "Node.js",
+      "description": "Server-side JavaScript runtime environment, enabling the development of scalable and high-performance applications."
+    },
+    "nestJS": {
+      "title": "NestJS",
+      "description": "Progressive Node.js framework for building scalable and efficient applications using TypeScript."
+    },
+    "postgreSQL": {
+      "title": "PostgreSQL",
+      "description": "Advanced relational database management system, known for its robustness and SQL standards compliance."
+    },
+    "mongoDB": {
+      "title": "MongoDB",
+      "description": "Document-oriented NoSQL database, ideal for applications requiring scalability and flexibility."
+    },
+    "reactNative": {
+      "title": "React Native",
+      "description": "Framework for developing native mobile apps using JavaScript and React."
+    },
+    "docker": {
+      "title": "Docker",
+      "description": "Containerization platform that allows packaging applications and their dependencies consistently."
+    },
+    "aws": {
+      "title": "AWS",
+      "description": "Amazon cloud computing services, offering scalable and reliable infrastructure."
+    },
+    "git": {
+      "title": "Git",
+      "description": "Distributed version control system, essential for collaboration and source code management."
+    },
+    "projectManagement": {
+      "title": "Project Management",
+      "description": "Skills and practices to efficiently plan, execute, and finalize projects."
+    },
+    "teamWork": {
+      "title": "Teamwork",
+      "description": "Ability to collaborate effectively with others to achieve common goals."
+    },
+    "communication": {
+      "title": "Communication",
+      "description": "Ability to convey information clearly and effectively, both verbally and in writing."
     }
   },
   "projects": {

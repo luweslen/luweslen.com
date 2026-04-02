@@ -92,7 +92,7 @@ const isFlipped = ref(false)
             :transition="{ delay: 0.7 }"
           >
             <a
-              href="#sobre-mim"
+              href="#about"
               class="inline-flex items-center gap-2 bg-accent text-accent-foreground font-display font-semibold px-8 py-4 rounded-lg hover:bg-accent/90 transition-all text-base hover:shadow-lg hover:shadow-accent/20"
             >
               {{ t('common.aboutMe') }}
@@ -139,13 +139,17 @@ const isFlipped = ref(false)
                 class="absolute inset-0 rounded-full overflow-hidden ring-4 ring-accent/30 ring-offset-4 ring-offset-background"
                 style="backface-visibility: hidden"
               >
-                <img
-                  src="/hero.png"
+                <NuxtImg
+                  src="/hero.webp"
                   alt="Luciano Weslen"
                   class="w-full h-full object-cover"
                   width="288"
                   height="288"
-                >
+                  fetchpriority="high"
+                  loading="eager"
+                  format="webp"
+                  quality="90"
+                />
               </div>
 
               <!-- Back - Avatar cartoon -->
@@ -153,13 +157,15 @@ const isFlipped = ref(false)
                 class="absolute inset-0 rounded-full overflow-hidden ring-4 ring-primary/40 ring-offset-4 ring-offset-background bg-[hsl(35,30%,90%)]"
                 style="backface-visibility: hidden; transform: rotateY(180deg)"
               >
-                <img
-                  src="/avatar.png"
+                <NuxtImg
+                  src="/avatar.webp"
                   alt="Luciano Weslen - Avatar"
                   class="w-full h-full object-cover"
                   width="288"
                   height="288"
-                >
+                  loading="lazy"
+                  format="webp"
+                />
               </div>
             </Motion>
 

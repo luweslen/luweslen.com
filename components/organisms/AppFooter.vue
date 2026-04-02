@@ -11,7 +11,7 @@ const socials = [
     <div class="container mx-auto max-w-6xl flex flex-col md:flex-row items-center justify-between gap-6">
       <!-- Logo -->
       <a
-        href="#inicio"
+        href="#home"
         class="font-display text-lg font-bold tracking-tight"
       >
         <span class="text-accent">L</span>
@@ -25,7 +25,7 @@ const socials = [
           :key="s.label"
           :icon="s.icon"
           :href="s.href"
-          :ariaLabel="s.label"
+          :aria-label="s.label"
         />
       </div>
 
