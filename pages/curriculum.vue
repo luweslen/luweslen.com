@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { SkillLevel } from '~/types'
-
+import { track } from '@vercel/analytics'
 const { t } = useI18n()
 const localePath = useLocalePath()
 
@@ -31,6 +31,11 @@ const handleDownload = async () => {
   generating.value = true
 
   try {
+    track('download_cv', {
+      page: 'curriculum',
+      format: 'pdf'
+    })
+
     const html2canvas = (await import('html2canvas-pro')).default
     const { jsPDF } = await import('jspdf')
 

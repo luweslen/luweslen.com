@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Motion } from 'motion-v'
+import { track } from '@vercel/analytics'
 
 const { t } = useI18n()
 
@@ -23,6 +24,14 @@ const contacts = [
     display: '@luweslen',
   },
 ]
+
+const trackContactClick = (label: string) => {
+  track('contact_click', {
+    page: 'home',
+    section: 'contact',
+    label,
+  })
+}
 </script>
 
 <template>
@@ -46,6 +55,7 @@ const contacts = [
             :label="contact.label"
             :value="contact.display"
             :href="contact.href"
+            @click="trackContactClick(contact.label)"
           />
         </Motion>
       </div>
