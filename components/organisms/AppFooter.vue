@@ -2,7 +2,7 @@
 const socials = [
   { icon: 'i-mdi-web', href: 'https://www.luweslen.com', label: 'Site' },
   { icon: 'i-mdi-linkedin', href: 'https://www.linkedin.com/in/luweslen', label: 'LinkedIn' },
-  { icon: 'i-mdi-instagram', href: 'https://www.instagram.com/luweslen', label: 'Instagram' },
+  { icon: 'i-mdi-github', href: 'https://www.github.com/luweslen', label: 'GitHub' },
 ]
 </script>
 
