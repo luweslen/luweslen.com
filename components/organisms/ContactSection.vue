@@ -17,9 +17,9 @@ const contacts = [
     display: '/in/luweslen',
   },
   {
-    icon: 'i-mdi-instagram',
-    label: 'Instagram',
-    href: 'https://www.instagram.com/luweslen',
+    icon: 'i-mdi-github',
+    label: 'GitHub',
+    href: 'https://github.com/luweslen',
     display: '@luweslen',
   },
 ]

@@ -36,6 +36,7 @@
     "@iconify-json/twemoji": "1.1.15",
     "@nuxt/image": "2.0.0",
     "@nuxt/ui": "4.6.0",
+    "@vercel/analytics": "2.0.1",
     "html2canvas-pro": "2.0.2",
     "jspdf": "4.2.1",
     "motion-v": "2.2.0",
