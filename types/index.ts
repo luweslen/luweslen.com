@@ -18,6 +18,7 @@ export enum SkillCategory {
   SOFT_SKILLS = 'softSkills',
   DEVOPS = 'devops',
   DATABASE = 'database',
+  AI = 'ai',
 }
 
 export interface Skill {

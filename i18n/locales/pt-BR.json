@@ -68,6 +68,10 @@
       "title": "Sobre mim",
       "professionalExperience": "Experiência Profissional",
       "academicEducation": "Formação Acadêmica",
+      "disability": {
+        "title": "Pessoa com deficiência visual",
+        "description": "Pessoa com deficiência visual (PCD — CID H54.1), cego de um olho e com visão parcial do outro em razão de catarata congênita."
+      },
       "seo": {
         "description": "Conheça Luciano Weslen, desenvolvedor de software com quase 3 anos de experiência na ZRP, especializado em Node.js, TypeScript, AWS e desenvolvimento de soluções escaláveis para o mercado financeiro.",
         "ogDescription": "Conheça Luciano Weslen, desenvolvedor de software com quase 3 anos de experiência na ZRP, especializado em Node.js, TypeScript, AWS e desenvolvimento de soluções escaláveis para o mercado financeiro."
@@ -100,6 +104,8 @@
     }
   },
   "profession": "Desenvolvedor de Software",
+  "cvProfession": "Desenvolvedor de Software Sênior",
+  "cvDisability": "PCD · CID H54.1",
   "current": "Atualmente",
   "highlights": {
     "experience": {
@@ -134,12 +140,33 @@
       "intern": "Estagiário de Desenvolvimento de Software",
       "junior": "Desenvolvedor de Software Júnior",
       "developer": "Desenvolvedor de Software Pleno",
+      "senior": "Desenvolvedor de Software Sênior",
       "chapterLeader": "Chapter Leader"
     },
     "timeline": {
+      "bernoulli": {
+        "senior": {
+          "period": "Jun 2022 – Presente",
+          "summary": "Desenvolvimento de soluções para as plataformas educacionais do Bernoulli Educação.",
+          "details": [
+            "Vue.js e React para interfaces web.",
+            "NestJS e MongoDB para serviços e APIs.",
+            "TypeScript em todo o stack.",
+            "Azure e Azure DevOps para infraestrutura e pipelines de CI/CD."
+          ]
+        }
+      },
       "zrp": {
+        "senior": {
+          "period": "Fev 2026 – Mai 2026",
+          "summary": "Atuação como desenvolvedor sênior na plataforma da Corretora de Câmbio, dando continuidade à evolução do produto.",
+          "details": [
+            "Vue.js (Quasar), Node.js e NestJS no desenvolvimento da plataforma.",
+            "PostgreSQL, MongoDB e AWS na persistência e infraestrutura."
+          ]
+        },
         "chapterLeader": {
-          "period": "Ago 2024 – Presente",
+          "period": "Ago 2024 – Mai 2026",
           "summary": "Responsável por organizar e orientar discussões técnicas, gerenciar tempo e acompanhar o bom funcionamento das Oficinas semanais.",
           "details": [
             "Organização de encontros semanais por departamento para troca de conhecimentos e experiências.",
@@ -148,7 +175,7 @@
           ]
         },
         "developer": {
-          "period": "Ago 2023 – Presente",
+          "period": "Ago 2023 – Fev 2026",
           "summary": "Desenvolvimento de soluções para uma Corretora de Câmbio, contribuindo para a aceleração contínua da plataforma.",
           "details": [
             "Utilização de Vue.js (Quasar) para interfaces responsivas e interativas.",
@@ -267,6 +294,10 @@
       "devops": {
         "title": "DevOps",
         "description": "Práticas e ferramentas para integração contínua, entrega contínua e automação de infraestrutura."
+      },
+      "ai": {
+        "title": "Inteligência Artificial",
+        "description": "Ferramentas de IA que uso para acelerar o desenvolvimento, a revisão de código e a resolução de problemas."
       }
     },
     "javascript": {
@@ -329,6 +360,18 @@
       "title": "AWS",
       "description": "Serviços de computação em nuvem da Amazon, oferecendo infraestrutura escalável e confiável."
     },
+    "azureDevOps": {
+      "title": "Azure DevOps",
+      "description": "Plataforma da Microsoft para repositórios, pipelines de CI/CD e gestão ágil de tarefas."
+    },
+    "claudeCode": {
+      "title": "Claude Code",
+      "description": "Ferramenta de programação agêntica da Anthropic, usada para implementar funcionalidades, refatorar e revisar código direto no terminal e na IDE."
+    },
+    "githubCopilot": {
+      "title": "GitHub Copilot",
+      "description": "Assistente de programação com IA integrado ao editor, usado para autocompletar código, sugestões e desenvolvimento assistido por chat."
+    },
     "git": {
       "title": "Git",
       "description": "Sistema de controle de versão distribuído, essencial para colaboração e gerenciamento de código-fonte."
@@ -375,6 +418,10 @@
     }
   },
   "projects": {
+    "multitude": {
+      "description": "Sistema de ensino do Bernoulli Educação que organiza a rotina da escola, com materiais didáticos, planos de aula sugeridos e painel de métricas para apoiar professores, gestores, estudantes e famílias.",
+      "shortDescription": "Sistema de ensino inteligente, prático e na medida certa"
+    },
     "commpix": {
       "description": "Plataforma de pagamentos globais que oferece soluções de Pix internacional, transformando a complexidade das transações cross-border em eficiência operacional.",
       "shortDescription": "Soluções globais de pagamento via Pix internacional"

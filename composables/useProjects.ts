@@ -11,6 +11,23 @@ export function useProjects(options: UseProjectsOptions = {}) {
 
   const projects = computed<Project[]>(() => [
     {
+      title: 'Multitude Adams',
+      description: preview
+        ? t('projects.multitude.shortDescription')
+        : t('projects.multitude.description'),
+      link: 'https://sistemamultitude.com.br/',
+      linkText: t('common.viewDetails'),
+      techs: [
+        getSkillByName('Vue.js')?.title,
+        getSkillByName('React.js')?.title,
+        getSkillByName('TypeScript')?.title,
+        getSkillByName('NestJS')?.title,
+        getSkillByName('MongoDB')?.title,
+        getSkillByName('Azure DevOps')?.title
+      ].filter(Boolean) as string[],
+      logo: '/projects/multitude.png',
+    },
+    {
       title: 'COMM.PIX',
       description: preview 
         ? t('projects.commpix.shortDescription') 

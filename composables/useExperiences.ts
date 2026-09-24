@@ -18,20 +18,34 @@ export function useExperiences(options: UseExperiencesOptions = {}): ComputedRef
   if (format === 'cv') {
     return computed<CVExperience[]>(() => [
       {
+        company: 'Bernoulli Educação',
+        tags: ['VueJS', 'React', 'NestJS', 'MongoDB', 'TypeScript', 'Azure'],
+        roles: [
+          {
+            title: t('experience.positions.senior'),
+            period: 'jun. de 2022 – ' + t('current').toLowerCase()
+          },
+        ],
+      },
+      {
         company: 'ZRP',
         tags: ['VueJS', 'NestJS', 'MongoDB', 'PostgreSQL', 'TypeScript', 'AWS'],
         roles: [
-          { 
-            title: t('experience.positions.chapterLeader'), 
-            period: 'ago. de 2024 – ' + t('current').toLowerCase() 
+          {
+            title: t('experience.positions.senior'),
+            period: 'fev. de 2026 – mai. de 2026'
           },
-          { 
-            title: t('experience.positions.developer'), 
-            period: 'ago. de 2023 – ' + t('current').toLowerCase() 
+          {
+            title: t('experience.positions.chapterLeader'),
+            period: 'ago. de 2024 – mai. de 2026'
           },
-          { 
-            title: t('experience.positions.junior'), 
-            period: 'mar. de 2022 – ago. de 2023' 
+          {
+            title: t('experience.positions.developer'),
+            period: 'ago. de 2023 – fev. de 2026'
+          },
+          {
+            title: t('experience.positions.junior'),
+            period: 'mar. de 2022 – ago. de 2023'
           },
         ],
       },
@@ -39,13 +53,13 @@ export function useExperiences(options: UseExperiencesOptions = {}): ComputedRef
         company: 'tilit / UIRD',
         tags: ['VueJS', 'NodeJS', 'MongoDB', 'TypeScript', 'Python', 'Flask'],
         roles: [
-          { 
-            title: t('experience.positions.junior'), 
-            period: 'jun. de 2021 – mar. de 2022' 
+          {
+            title: t('experience.positions.junior'),
+            period: 'jun. de 2021 – mar. de 2022'
           },
-          { 
-            title: t('experience.positions.intern'), 
-            period: 'fev. de 2020 – jun. de 2021' 
+          {
+            title: t('experience.positions.intern'),
+            period: 'fev. de 2020 – jun. de 2021'
           },
         ],
       },
@@ -54,6 +68,20 @@ export function useExperiences(options: UseExperiencesOptions = {}): ComputedRef
 
   // format === 'timeline'
   return computed<Experience[]>(() => [
+    {
+      period: t('experience.timeline.bernoulli.senior.period'),
+      title: t('experience.positions.senior'),
+      company: 'Bernoulli Educação',
+      summary: t('experience.timeline.bernoulli.senior.summary'),
+      details: tm('experience.timeline.bernoulli.senior.details') as string[],
+    },
+    {
+      period: t('experience.timeline.zrp.senior.period'),
+      title: t('experience.positions.senior'),
+      company: 'ZRP Aplicações',
+      summary: t('experience.timeline.zrp.senior.summary'),
+      details: tm('experience.timeline.zrp.senior.details') as string[],
+    },
     {
       period: t('experience.timeline.zrp.chapterLeader.period'),
       title: t('experience.positions.chapterLeader'),

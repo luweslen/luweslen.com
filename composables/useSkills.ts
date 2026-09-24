@@ -18,6 +18,7 @@ export function useSkills(): UseSkillsReturn {
     [SkillCategory.TOOLS]: 'i-mdi-tools',
     [SkillCategory.METHODOLOGIES]: 'i-mdi-view-dashboard',
     [SkillCategory.SOFT_SKILLS]: 'i-mdi-account-group',
+    [SkillCategory.AI]: 'i-mdi-robot-outline',
   }
   const skills = computed<Skill[]>(() => [
     // --- PROGRAMMING LANGUAGES ---
@@ -167,6 +168,29 @@ export function useSkills(): UseSkillsReturn {
       title: t('skills.aws.title'),
       description: t('skills.aws.description'),
       categories: [SkillCategory.DEVOPS],
+      level: SkillLevel.FREQUENT,
+    },
+    {
+      icon: 'i-mdi-microsoft-azure-devops',
+      title: t('skills.azureDevOps.title'),
+      description: t('skills.azureDevOps.description'),
+      categories: [SkillCategory.DEVOPS],
+      level: SkillLevel.FREQUENT,
+    },
+
+    // --- AI ---
+    {
+      icon: 'i-mdi-creation',
+      title: t('skills.claudeCode.title'),
+      description: t('skills.claudeCode.description'),
+      categories: [SkillCategory.AI],
+      level: SkillLevel.FREQUENT,
+    },
+    {
+      icon: 'i-mdi-github',
+      title: t('skills.githubCopilot.title'),
+      description: t('skills.githubCopilot.description'),
+      categories: [SkillCategory.AI],
       level: SkillLevel.FREQUENT,
     },
 

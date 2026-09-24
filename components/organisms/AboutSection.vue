@@ -3,6 +3,7 @@ import { Motion } from 'motion-v'
 
 const { t } = useI18n()
 const localePath = useLocalePath()
+const yearsOfExperience = useYearsOfExperience()
 </script>
 
 <template>
@@ -20,7 +21,7 @@ const localePath = useLocalePath()
         :transition="{ duration: 0.5 }"
       >
         <StatBadge
-          value="5+"
+          :value="`${yearsOfExperience}+`"
           :description="t('common.yearsExperience')"
         />
         <p class="text-lg text-secondary-foreground leading-relaxed">

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const { t } = useI18n()
 const localePath = useLocalePath()
+const yearsOfExperience = useYearsOfExperience()
 
 // SEO Meta Tags
 useSeoMeta({
@@ -54,7 +55,7 @@ const education = useEducation()
     <!-- Bio -->
     <div class="flex flex-col md:flex-row md:items-center gap-6 mb-12 animate-fade-in">
       <StatBadge
-        value="5+"
+        :value="`${yearsOfExperience}+`"
         :description="t('common.yearsExperience')"
       />
       <p class="text-lg text-secondary-foreground leading-relaxed">
@@ -62,6 +63,14 @@ const education = useEducation()
         <span class="text-accent font-semibold">{{ t('bio.company') }}</span>{{ t('bio.description') }}
       </p>
     </div>
+
+    <!-- Disability -->
+    <HighlightCard
+      icon="i-mdi-eye-outline"
+      :title="t('pages.about.disability.title')"
+      :description="t('pages.about.disability.description')"
+      class="mb-6 animate-fade-in"
+    />
 
     <!-- Highlights -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">

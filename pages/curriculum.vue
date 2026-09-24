@@ -43,14 +43,18 @@ const handleDownload = async () => {
       scale: 2,
       useCORS: true,
       backgroundColor: '#ffffff',
+      windowWidth: 1280,
     })
 
     const imgData = canvas.toDataURL('image/jpeg', 0.95)
     const pdf = new jsPDF('p', 'mm', 'a4')
-    const pdfWidth = pdf.internal.pageSize.getWidth()
-    const pdfHeight = (canvas.height * pdfWidth) / canvas.width
+    const pageWidth = pdf.internal.pageSize.getWidth()
+    const pageHeight = pdf.internal.pageSize.getHeight()
+    const scale = Math.min(pageWidth / canvas.width, pageHeight / canvas.height)
+    const imgWidth = canvas.width * scale
+    const imgHeight = canvas.height * scale
 
-    pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight)
+    pdf.addImage(imgData, 'JPEG', (pageWidth - imgWidth) / 2, 0, imgWidth, imgHeight)
     pdf.save('Luciano_Weslen_CV.pdf')
   }
   catch (err) {
@@ -94,6 +98,7 @@ const skillLegend = computed(() => [
         class="inline-flex items-center gap-2 text-sm text-[hsl(240,5%,40%)] hover:text-[hsl(240,10%,12%)] transition-colors"
       >
         <UIcon
+          mode="svg"
           name="i-mdi-arrow-left"
           class="text-base"
         />
@@ -105,6 +110,7 @@ const skillLegend = computed(() => [
         @click="handleDownload"
       >
         <UIcon
+          mode="svg"
           name="i-mdi-download"
           class="text-base"
         />
@@ -120,7 +126,7 @@ const skillLegend = computed(() => [
     >
       <!-- Header -->
       <div
-        class="px-10 pt-10 pb-8 text-center"
+        class="px-10 pt-7 pb-6 text-center"
         style="background: linear-gradient(135deg, hsl(240, 10%, 12%) 0%, hsl(240, 8%, 20%) 100%)"
       >
         <NuxtLink
@@ -131,16 +137,17 @@ const skillLegend = computed(() => [
             class="text-3xl font-extrabold tracking-tight text-white mb-1"
             style="font-family: 'Sora', sans-serif"
           >
-            Luciano Weslen
+            Luciano Weslen da Silva
           </h1>
         </NuxtLink>
-        <p class="text-[hsl(240,5%,70%)] text-sm mb-4">
-          {{ t('profession') }}
+        <p class="text-[hsl(240,5%,70%)] text-sm mb-3">
+          {{ t('cvProfession') }}
         </p>
 
         <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-[hsl(240,5%,70%)]">
           <span class="flex items-center gap-1.5">
             <UIcon
+              mode="svg"
               name="i-mdi-map-marker"
               class="text-accent text-sm"
             />
@@ -151,14 +158,23 @@ const skillLegend = computed(() => [
             class="flex items-center gap-1.5 hover:text-white transition-colors no-underline text-[hsl(240,5%,70%)]"
           >
             <UIcon
+              mode="svg"
               name="i-mdi-email"
               class="text-accent text-sm"
             />
             luciano.weslen1@gmail.com
           </a>
+          <span class="flex items-center gap-1.5">
+            <UIcon
+              mode="svg"
+              name="i-mdi-eye-outline"
+              class="text-accent text-sm"
+            />
+            {{ t('cvDisability') }}
+          </span>
         </div>
 
-        <div class="flex items-center justify-center gap-4 mt-3 text-xs text-[hsl(240,5%,70%)]">
+        <div class="flex items-center justify-center gap-4 mt-2 text-xs text-[hsl(240,5%,70%)]">
           <a
             href="https://linkedin.com/in/luweslen"
             target="_blank"
@@ -166,6 +182,7 @@ const skillLegend = computed(() => [
             class="flex items-center gap-1.5 hover:text-white transition-colors no-underline text-[hsl(240,5%,70%)]"
           >
             <UIcon
+              mode="svg"
               name="i-mdi-linkedin"
               class="text-accent text-sm"
             />
@@ -178,6 +195,7 @@ const skillLegend = computed(() => [
             class="flex items-center gap-1.5 hover:text-white transition-colors no-underline text-[hsl(240,5%,70%)]"
           >
             <UIcon
+              mode="svg"
               name="i-mdi-github"
               class="text-accent text-sm"
             />
@@ -187,16 +205,16 @@ const skillLegend = computed(() => [
       </div>
 
       <!-- Body -->
-      <div class="px-10 py-8 space-y-8">
+      <div class="px-10 py-6 space-y-6">
         <!-- Educação -->
         <div>
           <h2
-            class="text-lg font-bold text-[hsl(240,10%,12%)] mb-4 pb-2 border-b-2 border-accent"
+            class="text-lg font-bold text-[hsl(240,10%,12%)] mb-3 pb-1.5 border-b-2 border-accent"
             style="font-family: 'Sora', sans-serif"
           >
             {{ t('education.title') }}
           </h2>
-          <div class="space-y-5">
+          <div class="space-y-3">
             <div
               v-for="edu in educations"
               :key="edu.course"
@@ -212,6 +230,7 @@ const skillLegend = computed(() => [
               </div>
               <span class="flex items-center gap-1.5 text-xs text-[hsl(240,5%,45%)] whitespace-nowrap shrink-0">
                 <UIcon
+                  mode="svg"
                   name="i-mdi-calendar"
                   class="text-xs"
                 />
@@ -224,20 +243,20 @@ const skillLegend = computed(() => [
         <!-- Experiência -->
         <div>
           <h2
-            class="text-lg font-bold text-[hsl(240,10%,12%)] mb-4 pb-2 border-b-2 border-accent"
+            class="text-lg font-bold text-[hsl(240,10%,12%)] mb-3 pb-1.5 border-b-2 border-accent"
             style="font-family: 'Sora', sans-serif"
           >
             {{ t('experience.title') }}
           </h2>
-          <div class="space-y-5">
+          <div class="space-y-4">
             <div
               v-for="exp in experiences"
               :key="exp.company"
             >
-              <p class="font-semibold text-sm text-[hsl(240,10%,12%)] mb-1.5">
+              <p class="font-semibold text-sm text-[hsl(240,10%,12%)] mb-1">
                 {{ exp.company }}
               </p>
-              <div class="flex flex-wrap gap-1.5 mb-3">
+              <div class="flex flex-wrap gap-1.5 mb-2">
                 <span
                   v-for="tag in exp.tags"
                   :key="tag"
@@ -247,18 +266,19 @@ const skillLegend = computed(() => [
                   {{ tag }}
                 </span>
               </div>
-              <div class="space-y-1.5">
+              <div class="space-y-1">
                 <div
                   v-for="role in exp.roles"
                   :key="role.title"
                   class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-0.5"
                 >
                   <p class="text-xs text-[hsl(240,10%,20%)]">
-                    <span class="text-accent font-mono mr-1">>_</span>
+                    <span class="text-[hsl(78,100%,32%)] font-mono mr-1">>_</span>
                     {{ role.title }}
                   </p>
                   <span class="flex items-center gap-1.5 text-[11px] text-[hsl(240,5%,45%)] whitespace-nowrap">
                     <UIcon
+                      mode="svg"
                       name="i-mdi-calendar"
                       class="text-[10px]"
                     />
@@ -273,14 +293,14 @@ const skillLegend = computed(() => [
         <!-- Habilidades -->
         <div>
           <h2
-            class="text-lg font-bold text-[hsl(240,10%,12%)] mb-4 pb-2 border-b-2 border-accent"
+            class="text-lg font-bold text-[hsl(240,10%,12%)] mb-3 pb-1.5 border-b-2 border-accent"
             style="font-family: 'Sora', sans-serif"
           >
             {{ t('skills.title') }}
           </h2>
-          <div class="space-y-4">
+          <div class="space-y-3">
             <!-- Legenda -->
-            <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mb-1">
+            <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
               <span class="text-xs text-[hsl(240,5%,45%)] font-medium">Legenda:</span>
               <span
                 v-for="item in skillLegend"
@@ -297,39 +317,32 @@ const skillLegend = computed(() => [
               </span>
             </div>
 
-            <div
-              v-for="category in skillsByCategory"
-              :key="category.title"
-            >
-              <p class="font-semibold text-sm text-[hsl(240,10%,12%)] mb-2">
-                {{ category.title }}
-              </p>
-              <div class="space-y-2">
+            <div class="space-y-2">
+              <div
+                v-for="category in skillsByCategory"
+                :key="category.title"
+                class="grid grid-cols-2 sm:grid-cols-[10rem_1fr_1fr_1fr_4rem] items-center gap-x-4 gap-y-1"
+              >
+                <p class="col-span-2 sm:col-span-1 font-semibold text-xs leading-tight text-[hsl(240,10%,12%)]">
+                  {{ category.title }}
+                </p>
                 <div
-                  class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4"
+                  v-for="tag in category.skills.slice(0, 3)"
+                  :key="tag.title"
+                  class="flex items-center gap-2 min-w-0"
                 >
-                  <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-1.5 flex-1">
+                  <span class="text-[10px] text-[hsl(240,10%,20%)] w-20 shrink-0 truncate">{{ tag.title }}</span>
+                  <div class="flex-1 h-1.5 rounded-full bg-[hsl(240,5%,88%)] overflow-hidden min-w-[30px]">
                     <div
-                      v-for="tag in category.skills.slice(0, 3)"
-                      :key="tag.title"
-                      class="flex items-center gap-2"
-                    >
-                      <span class="text-[10px] text-[hsl(240,10%,20%)] w-20 shrink-0 truncate">{{ tag.title }}</span>
-                      <div class="flex-1 h-1.5 rounded-full bg-[hsl(240,5%,88%)] overflow-hidden min-w-[40px]">
-                        <div
-                          class="h-full rounded-full bg-[hsl(240,10%,20%)]"
-                          :style="{ width: `${levelPercent[tag.level]}%` }"
-                        />
-                      </div>
-                    </div>
-                    <div
-                      v-if="category.skills.length > 3"
-                      class="flex items-center gap-2"
-                    >
-                      <span class="text-[10px] text-[hsl(240,5%,55%)] italic">{{ t('skills.andOthers') }}</span>
-                    </div>
+                      class="h-full rounded-full bg-[hsl(240,10%,20%)]"
+                      :style="{ width: `${levelPercent[tag.level]}%` }"
+                    />
                   </div>
                 </div>
+                <span
+                  v-if="category.skills.length > 3"
+                  class="sm:col-start-5 text-[10px] text-[hsl(240,5%,55%)] italic whitespace-nowrap"
+                >{{ t('skills.andOthers') }}</span>
               </div>
             </div>
           </div>
@@ -337,17 +350,18 @@ const skillLegend = computed(() => [
       </div>
 
       <!-- Footer -->
-      <div class="px-10 py-4 border-t border-[hsl(240,5%,88%)] flex items-center justify-between">
+      <div class="px-10 py-3 border-t border-[hsl(240,5%,88%)] flex items-center justify-between">
         <span class="font-display text-sm font-bold tracking-tight">
-          <span class="text-accent">L</span>
+          <span class="text-[hsl(78,100%,32%)]">L</span>
           <span class="text-[hsl(240,10%,20%)]">W</span>
-          <span class="text-accent">.</span>
+          <span class="text-[hsl(78,100%,32%)]">.</span>
         </span>
         <p class="text-[10px] text-[hsl(240,5%,55%)] flex items-center gap-1">
           © {{ new Date().getFullYear() }} Feito com
           <UIcon
+            mode="svg"
             name="i-mdi-heart"
-            class="text-accent text-[10px]"
+            class="text-[hsl(78,100%,32%)] text-[10px]"
           />
           por Luciano Weslen
         </p>

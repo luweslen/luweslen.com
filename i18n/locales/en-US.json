@@ -68,6 +68,10 @@
       "title": "About me",
       "professionalExperience": "Professional Experience",
       "academicEducation": "Academic Education",
+      "disability": {
+        "title": "Person with visual disability",
+        "description": "Person with visual disability (PwD — ICD-10 H54.1), blind in one eye and with partial vision in the other due to congenital cataracts."
+      },
       "seo": {
         "description": "Learn about Luciano Weslen, software developer with almost 3 years of experience at ZRP, specialized in Node.js, TypeScript, AWS and developing scalable solutions for the financial market.",
         "ogDescription": "Learn about Luciano Weslen, software developer with almost 3 years of experience at ZRP, specialized in Node.js, TypeScript, AWS and developing scalable solutions for the financial market."
@@ -100,6 +104,8 @@
     }
   },
   "profession": "Software Developer",
+  "cvProfession": "Senior Software Developer",
+  "cvDisability": "PwD · ICD-10 H54.1",
   "current": "Current",
   "highlights": {
     "experience": {
@@ -134,12 +140,33 @@
       "intern": "Internship Software Developer",
       "junior": "Junior Software Developer",
       "developer": "Software Developer",
+      "senior": "Senior Software Developer",
       "chapterLeader": "Chapter Leader"
     },
     "timeline": {
+      "bernoulli": {
+        "senior": {
+          "period": "Jun 2022 – Present",
+          "summary": "Development of solutions for Bernoulli Educação's educational platforms.",
+          "details": [
+            "Vue.js and React for web interfaces.",
+            "NestJS and MongoDB for services and APIs.",
+            "TypeScript across the stack.",
+            "Azure and Azure DevOps for infrastructure and CI/CD pipelines."
+          ]
+        }
+      },
       "zrp": {
+        "senior": {
+          "period": "Feb 2026 – May 2026",
+          "summary": "Worked as a senior developer on the Foreign Exchange Brokerage platform, continuing the product's evolution.",
+          "details": [
+            "Vue.js (Quasar), Node.js, and NestJS for platform development.",
+            "PostgreSQL, MongoDB, and AWS for persistence and infrastructure."
+          ]
+        },
         "chapterLeader": {
-          "period": "Aug 2024 – Present",
+          "period": "Aug 2024 – May 2026",
           "summary": "Responsible for organizing and guiding technical discussions, managing time, and monitoring the smooth operation of weekly Workshops.",
           "details": [
             "Organization of weekly meetings by department for knowledge and experience sharing.",
@@ -148,7 +175,7 @@
           ]
         },
         "developer": {
-          "period": "Aug 2023 – Present",
+          "period": "Aug 2023 – Feb 2026",
           "summary": "Development of solutions for an Exchange Broker, contributing to the continuous acceleration of the platform.",
           "details": [
             "Using Vue.js (Quasar) for responsive and interactive interfaces.",
@@ -291,6 +318,10 @@
       "scrum": {
         "title": "Scrum",
         "description": "Agile framework for managing complex projects, emphasizing teamwork, accountability, and iterative progress."
+      },
+      "ai": {
+        "title": "Artificial Intelligence",
+        "description": "AI tools I use to speed up development, code review, and problem solving."
       }
     },
     "javascript": {
@@ -353,6 +384,18 @@
       "title": "AWS",
       "description": "Amazon cloud computing services, offering scalable and reliable infrastructure."
     },
+    "azureDevOps": {
+      "title": "Azure DevOps",
+      "description": "Microsoft platform for repositories, CI/CD pipelines, and agile work item management."
+    },
+    "claudeCode": {
+      "title": "Claude Code",
+      "description": "Anthropic's agentic coding tool, used for implementing features, refactoring, and reviewing code directly in the terminal and IDE."
+    },
+    "githubCopilot": {
+      "title": "GitHub Copilot",
+      "description": "AI pair programmer integrated into the editor, used for code completion, suggestions, and chat-assisted development."
+    },
     "git": {
       "title": "Git",
       "description": "Distributed version control system, essential for collaboration and source code management."
@@ -371,6 +414,10 @@
     }
   },
   "projects": {
+    "multitude": {
+      "description": "Bernoulli Educação's teaching system that organizes the school routine, with learning materials, suggested lesson plans, and a metrics dashboard to support teachers, administrators, students, and families.",
+      "shortDescription": "Smart, practical teaching system for schools"
+    },
     "commpix": {
       "description": "Global payment platform offering international Pix solutions, transforming the complexity of cross-border transactions into operational efficiency.",
       "shortDescription": "Global payment solutions via international Pix"
