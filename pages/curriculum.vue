@@ -90,9 +90,9 @@ const skillLegend = computed(() => [
 </script>
 
 <template>
-  <div class="min-h-screen bg-[hsl(240,5%,90%)] py-8 px-4 print:bg-white print:p-0">
+  <div class="min-h-screen bg-[hsl(240,5%,90%)] py-4 px-3 sm:py-8 sm:px-4 print:bg-white print:p-0">
     <!-- Top bar with back link and download button -->
-    <div class="max-w-[210mm] mx-auto mb-4 flex justify-between print:hidden">
+    <div class="max-w-[210mm] mx-auto mb-4 flex items-center justify-between gap-3 print:hidden">
       <NuxtLink
         :to="localePath('/')"
         class="inline-flex items-center gap-2 text-sm text-[hsl(240,5%,40%)] hover:text-[hsl(240,10%,12%)] transition-colors"
@@ -126,7 +126,7 @@ const skillLegend = computed(() => [
     >
       <!-- Header -->
       <div
-        class="px-10 pt-7 pb-6 text-center"
+        class="px-5 pt-6 pb-5 sm:px-10 sm:pt-7 sm:pb-6 text-center"
         style="background: linear-gradient(135deg, hsl(240, 10%, 12%) 0%, hsl(240, 8%, 20%) 100%)"
       >
         <NuxtLink
@@ -134,7 +134,7 @@ const skillLegend = computed(() => [
           class="inline-block text-white no-underline hover:opacity-80 transition-opacity print:pointer-events-none"
         >
           <h1
-            class="text-3xl font-extrabold tracking-tight text-white mb-1"
+            class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-1"
             style="font-family: 'Sora', sans-serif"
           >
             Luciano Weslen da Silva
@@ -205,41 +205,7 @@ const skillLegend = computed(() => [
       </div>
 
       <!-- Body -->
-      <div class="px-10 py-6 space-y-6">
-        <!-- Educação -->
-        <div>
-          <h2
-            class="text-lg font-bold text-[hsl(240,10%,12%)] mb-3 pb-1.5 border-b-2 border-accent"
-            style="font-family: 'Sora', sans-serif"
-          >
-            {{ t('education.title') }}
-          </h2>
-          <div class="space-y-3">
-            <div
-              v-for="edu in educations"
-              :key="edu.course"
-              class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1"
-            >
-              <div>
-                <p class="font-semibold text-sm text-[hsl(240,10%,12%)]">
-                  {{ edu.institution }}
-                </p>
-                <p class="text-xs text-[hsl(240,5%,45%)]">
-                  {{ edu.course }}
-                </p>
-              </div>
-              <span class="flex items-center gap-1.5 text-xs text-[hsl(240,5%,45%)] whitespace-nowrap shrink-0">
-                <UIcon
-                  mode="svg"
-                  name="i-mdi-calendar"
-                  class="text-xs"
-                />
-                {{ edu.period }}
-              </span>
-            </div>
-          </div>
-        </div>
-
+      <div class="px-5 py-5 sm:px-10 sm:py-6 space-y-6">
         <!-- Experiência -->
         <div>
           <h2
@@ -290,6 +256,40 @@ const skillLegend = computed(() => [
           </div>
         </div>
 
+        <!-- Educação -->
+        <div>
+          <h2
+            class="text-lg font-bold text-[hsl(240,10%,12%)] mb-3 pb-1.5 border-b-2 border-accent"
+            style="font-family: 'Sora', sans-serif"
+          >
+            {{ t('education.title') }}
+          </h2>
+          <div class="space-y-3">
+            <div
+              v-for="edu in educations"
+              :key="edu.course"
+              class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1"
+            >
+              <div>
+                <p class="font-semibold text-sm text-[hsl(240,10%,12%)]">
+                  {{ edu.institution }}
+                </p>
+                <p class="text-xs text-[hsl(240,5%,45%)]">
+                  {{ edu.course }}
+                </p>
+              </div>
+              <span class="flex items-center gap-1.5 text-xs text-[hsl(240,5%,45%)] whitespace-nowrap shrink-0">
+                <UIcon
+                  mode="svg"
+                  name="i-mdi-calendar"
+                  class="text-xs"
+                />
+                {{ edu.period }}
+              </span>
+            </div>
+          </div>
+        </div>
+
         <!-- Habilidades -->
         <div>
           <h2
@@ -300,14 +300,14 @@ const skillLegend = computed(() => [
           </h2>
           <div class="space-y-3">
             <!-- Legenda -->
-            <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
-              <span class="text-xs text-[hsl(240,5%,45%)] font-medium">Legenda:</span>
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-2 sm:gap-x-6">
+              <span class="w-full sm:w-auto text-xs text-[hsl(240,5%,45%)] font-medium">Legenda:</span>
               <span
                 v-for="item in skillLegend"
                 :key="item.label"
-                class="flex items-center gap-1.5 text-[10px] text-[hsl(240,5%,45%)]"
+                class="flex items-center gap-1.5 text-[11px] sm:text-[10px] text-[hsl(240,5%,45%)] whitespace-nowrap"
               >
-                <span class="inline-flex w-10 h-1.5 rounded-full bg-[hsl(240,5%,88%)] overflow-hidden">
+                <span class="inline-flex w-8 sm:w-10 h-1.5 rounded-full bg-[hsl(240,5%,88%)] overflow-hidden">
                   <span
                     class="h-full rounded-full bg-[hsl(240,10%,20%)]"
                     :style="{ width: `${item.pct}%` }"
@@ -317,13 +317,13 @@ const skillLegend = computed(() => [
               </span>
             </div>
 
-            <div class="space-y-2">
+            <div class="space-y-4 sm:space-y-2">
               <div
                 v-for="category in skillsByCategory"
                 :key="category.title"
-                class="grid grid-cols-2 sm:grid-cols-[10rem_1fr_1fr_1fr_4rem] items-center gap-x-4 gap-y-1"
+                class="grid grid-cols-1 sm:grid-cols-[10rem_1fr_1fr_1fr_4rem] items-center gap-x-4 gap-y-1.5"
               >
-                <p class="col-span-2 sm:col-span-1 font-semibold text-xs leading-tight text-[hsl(240,10%,12%)]">
+                <p class="font-semibold text-xs leading-tight text-[hsl(240,10%,12%)]">
                   {{ category.title }}
                 </p>
                 <div
@@ -331,7 +331,7 @@ const skillLegend = computed(() => [
                   :key="tag.title"
                   class="flex items-center gap-2 min-w-0"
                 >
-                  <span class="text-[10px] text-[hsl(240,10%,20%)] w-20 shrink-0 truncate">{{ tag.title }}</span>
+                  <span class="text-[11px] sm:text-[10px] text-[hsl(240,10%,20%)] w-28 sm:w-20 shrink-0 truncate">{{ tag.title }}</span>
                   <div class="flex-1 h-1.5 rounded-full bg-[hsl(240,5%,88%)] overflow-hidden min-w-[30px]">
                     <div
                       class="h-full rounded-full bg-[hsl(240,10%,20%)]"
@@ -350,7 +350,7 @@ const skillLegend = computed(() => [
       </div>
 
       <!-- Footer -->
-      <div class="px-10 py-3 border-t border-[hsl(240,5%,88%)] flex items-center justify-between">
+      <div class="px-5 sm:px-10 py-3 border-t border-[hsl(240,5%,88%)] flex items-center justify-between gap-3">
         <span class="font-display text-sm font-bold tracking-tight">
           <span class="text-[hsl(78,100%,32%)]">L</span>
           <span class="text-[hsl(240,10%,20%)]">W</span>
