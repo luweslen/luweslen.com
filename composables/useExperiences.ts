@@ -23,7 +23,7 @@ export function useExperiences(options: UseExperiencesOptions = {}): ComputedRef
         roles: [
           {
             title: t('experience.positions.senior'),
-            period: 'jun. de 2022 – ' + t('current').toLowerCase()
+            period: 'jun. de 2026 – ' + t('current').toLowerCase()
           },
         ],
       },
