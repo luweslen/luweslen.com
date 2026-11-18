@@ -144,9 +144,21 @@
       "chapterLeader": "Chapter Leader"
     },
     "timeline": {
+      "boticario": {
+        "senior": {
+          "period": "Nov 2022 – Present",
+          "summary": "Development of solutions for loyalty platforms.",
+          "details": [
+            "React for web interfaces.",
+            "NodeJS and DynamoDB for services and APIs.",
+            "JavaScript across the stack.",
+            "AWS for infrastructure."
+          ]
+        }
+      },
       "bernoulli": {
         "senior": {
-          "period": "Jun 2022 – Present",
+          "period": "Jun 2022 – Out 2026",
           "summary": "Development of solutions for Bernoulli Educação's educational platforms.",
           "details": [
             "Vue.js and React for web interfaces.",
