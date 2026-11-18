@@ -144,9 +144,21 @@
       "chapterLeader": "Chapter Leader"
     },
     "timeline": {
+      "boticario": {
+        "senior": {
+          "period": "Nov 2026 – Presente",
+          "summary": "Desenvolvimento de soluções para as plataformas fidelidade.",
+          "details": [
+            "React para interfaces web.",
+            "NodeJS e DynamoDB para serviços e APIs.",
+            "TypeScript em todo o stack.",
+            "AWS para infraestrutura"
+          ]
+        }
+      },
       "bernoulli": {
         "senior": {
-          "period": "Jun 2022 – Presente",
+          "period": "Jun 2026 – Out 2026",
           "summary": "Desenvolvimento de soluções para as plataformas educacionais do Bernoulli Educação.",
           "details": [
             "Vue.js e React para interfaces web.",
