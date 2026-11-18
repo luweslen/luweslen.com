@@ -18,12 +18,22 @@ export function useExperiences(options: UseExperiencesOptions = {}): ComputedRef
   if (format === 'cv') {
     return computed<CVExperience[]>(() => [
       {
+        company: 'Grupo Boticário',
+        tags: ['React', 'DynamoDB', 'JavaScrit', 'AWS'],
+        roles: [
+          {
+            title: t('experience.positions.senior'),
+            period: 'nov. de 2026 – ' + t('current').toLowerCase()
+          },
+        ],
+      },
+      {
         company: 'Bernoulli Educação',
         tags: ['VueJS', 'React', 'NestJS', 'MongoDB', 'TypeScript', 'Azure'],
         roles: [
           {
             title: t('experience.positions.senior'),
-            period: 'jun. de 2026 – ' + t('current').toLowerCase()
+            period: 'jun. de 2026 – out. de 2026'
           },
         ],
       },
@@ -68,6 +78,13 @@ export function useExperiences(options: UseExperiencesOptions = {}): ComputedRef
 
   // format === 'timeline'
   return computed<Experience[]>(() => [
+    {
+      period: t('experience.timeline.boticario.senior.period'),
+      title: t('experience.positions.senior'),
+      company: 'Grupo Boticário',
+      summary: t('experience.timeline.boticario.senior.summary'),
+      details: tm('experience.timeline.boticario.senior.details') as string[],
+    },
     {
       period: t('experience.timeline.bernoulli.senior.period'),
       title: t('experience.positions.senior'),
